@@ -10,13 +10,17 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TokenInterceptor } from './helpers/interceptor';
 import { IndexComponent } from './components/User/index/index.component';
+import { MyThingsComponent } from './components/my-things/my-things.component';
+import { AddThingsComponent } from './components/add-things/add-things.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    IndexComponent
+    IndexComponent,
+    MyThingsComponent,
+    AddThingsComponent
   ],
   imports: [
     BrowserModule,

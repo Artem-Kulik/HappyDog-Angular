@@ -4,6 +4,8 @@
     <li class="breadcrumb-item active" (click)="Summer()">Summer</li>
     <li class="breadcrumb-item active" (click)="Autumn()">Autumn</li>
     <li class="breadcrumb-item active" (click)="Winter()">Winter</li>
+    <li class="breadcrumb-item active" (click)="MyPage()">My wardrobe</li>
+    <li class="breadcrumb-item active" [routerLink]="['/login']">Log off</li>
   </ol>
 </nav>
 
@@ -23,9 +25,3 @@
     </tr>
   </tbody>
 </table>
-<div class="main">
-  <div class="inner-div">
-    <button type="button" class="mybutton btn btn-primary" [routerLink]="['/book/add-book']">Add new book</button>
-    <button type="button" class="mybutton btn btn-primary" [routerLink]="['/start']">Back</button>
-  </div>
-</div>
