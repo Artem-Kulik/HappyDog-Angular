@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegisterDto } from '../models/registerDto';
 import { Observable } from 'rxjs';
 import { ApiCollectionResponse, ApiResponse, ApiTokenResponse } from '../models/apiResponse';
@@ -10,6 +10,8 @@ import { ThingDto } from '../models/thingDto';
   providedIn: 'root'
 })
 export class UserService {
+  headers: HttpHeaders = new HttpHeaders();
+  
   constructor(private http: HttpClient) { }
   Register(x: RegisterDto): Observable<ApiResponse> {
     console.log(x);
@@ -26,5 +28,10 @@ export class UserService {
 
   addThing(x: ThingDto): Observable<ApiResponse> {
     return this.http.post<ApiResponse>('https://localhost:44381/api/user/addThing', x);
+  }
+
+  UploadPhoto(id: string, file: FormData):  Observable<ApiResponse> {
+    this.headers.append('Contect-Type', 'multipart/form-data');
+    return this.http.post<ApiResponse>('http://localhost:44381/api/image/UploadThingImage/'+id, file, {headers: this.headers})
   }
 }

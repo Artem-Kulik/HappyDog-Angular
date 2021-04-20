@@ -15,7 +15,7 @@ export class AddThingsComponent implements OnInit {
               private router: Router) { }
 
   prop: ThingDto = {
-    id: -1,
+    id: '',
     name: '',
     image: ''
   };
@@ -24,6 +24,10 @@ export class AddThingsComponent implements OnInit {
   }
 
   Add(){
+    var id = localStorage.getItem("Id");
+    if(id != null){
+      this.prop.id = id;
+    }
     this.userService.addThing(this.prop).subscribe((res: ApiResponse) => {
       if(res.isSuccessful){       
         this.router.navigate(['/index']);        

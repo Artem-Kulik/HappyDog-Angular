@@ -16,12 +16,12 @@ export class IndexComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    // this.seasonService.getSeasons().subscribe((res: ApiCollectionResponse) => {
-    //   if(res.isSuccessful){
-    //     console.log(res.data)        
-    //     this.Images = res.data;        
-    //   }
-    // });
+    this.seasonService.getSeasons().subscribe((res: ApiCollectionResponse) => {
+      if(res.isSuccessful){
+        console.log(res.data)        
+        this.Images = res.data;        
+      }
+    });
   }
 
   Spring(){

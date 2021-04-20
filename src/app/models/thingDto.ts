@@ -1,5 +1,5 @@
 export class ThingDto {
-    id: number = -1;
+    id: string = "";
     name: string = "";
-    image: string = "";
+    image: string = "";    
 }    

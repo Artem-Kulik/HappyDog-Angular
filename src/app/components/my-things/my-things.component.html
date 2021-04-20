@@ -4,13 +4,15 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>     
       <th scope="col">Image</th>     
+      <th scope="col"></th>     
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let thing of things; index as i">
       <th scope="row">{{ i + 1 }}</th>
       <td>{{ thing.name }}</td>
-      <td><img src="{{thing.image}}" class="img"></td>     
+      <td><img src="{{thing.image}}" class="img"></td>   
+      <td><input type="file" (change)="uploadPhoto(thing.id, $event.target.files)" name="psw" id="psw" required></td>
     </tr>
   </tbody>
 </table>

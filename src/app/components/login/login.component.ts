@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
     this.userService.Login(this.prop).subscribe((res : ApiTokenResponse) => {
       if (res.isSuccessful) {
         localStorage.setItem("Token", res.token);   
-        this.router.navigate(['/index', {id: res.message}]);            
+        localStorage.setItem("Id", res.message);   
+        this.router.navigate(['/index']);            
       }
       else{
       }
