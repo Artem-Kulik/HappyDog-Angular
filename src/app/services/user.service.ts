@@ -34,4 +34,9 @@ export class UserService {
     this.headers.append('Contect-Type', 'multipart/form-data');
     return this.http.post<ApiResponse>('http://localhost:44381/api/image/UploadThingImage/'+id, file, {headers: this.headers})
   }
+
+  EditThing(x: ThingDto):  Observable<ApiResponse> {
+    return this.http.post<ApiResponse>('http://localhost:44381/api/user/editThing', x);
+  }
+
 }

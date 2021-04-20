@@ -30,7 +30,7 @@ export class AddThingsComponent implements OnInit {
     }
     this.userService.addThing(this.prop).subscribe((res: ApiResponse) => {
       if(res.isSuccessful){       
-        this.router.navigate(['/index']);        
+        this.router.navigate(['/my-things']);        
       }
     });
   }

@@ -28,10 +28,10 @@ export class MyThingsComponent implements OnInit {
     });
   }
   
-  uploadPhoto(id:string, files: FileList){
+  uploadPhoto(files: FileList, id: string){
     if(files.item && files.item(0))
     {
-      this.formData.append('file', files.item(0));
+      this.formData.append('file', files.item(0)!);
     }
     this.userService.UploadPhoto(id, this.formData).subscribe((res: ApiResponse)=>{
       if(res.isSuccessful){
@@ -39,5 +39,4 @@ export class MyThingsComponent implements OnInit {
       }
     })
   }
-
 }

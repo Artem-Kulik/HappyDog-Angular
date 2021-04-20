@@ -12,6 +12,7 @@ import { TokenInterceptor } from './helpers/interceptor';
 import { IndexComponent } from './components/User/index/index.component';
 import { MyThingsComponent } from './components/my-things/my-things.component';
 import { AddThingsComponent } from './components/add-things/add-things.component';
+import { EditThingComponent } from './components/edit-thing/edit-thing.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddThingsComponent } from './components/add-things/add-things.component
     LoginComponent,
     IndexComponent,
     MyThingsComponent,
-    AddThingsComponent
+    AddThingsComponent,
+    EditThingComponent
   ],
   imports: [
     BrowserModule,
