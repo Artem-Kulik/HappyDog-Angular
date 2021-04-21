@@ -31,12 +31,12 @@ export class UserService {
   }
 
   UploadPhoto(id: string, file: FormData):  Observable<ApiResponse> {
-    this.headers.append('Contect-Type', 'multipart/form-data');
-    return this.http.post<ApiResponse>('http://localhost:44381/api/image/UploadThingImage/'+id, file, {headers: this.headers})
+    this.headers.append('Content-Type', 'multipart/form-data');
+    return this.http.post<ApiResponse>('https://localhost:44381/api/image/UploadThingImage/'+id, file, {headers: this.headers})
   }
 
   EditThing(x: ThingDto):  Observable<ApiResponse> {
-    return this.http.post<ApiResponse>('http://localhost:44381/api/user/editThing', x);
+    return this.http.post<ApiResponse>('https://localhost:44381/api/user/editThing', x);
   }
 
 }

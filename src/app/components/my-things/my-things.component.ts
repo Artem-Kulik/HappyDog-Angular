@@ -16,27 +16,28 @@ export class MyThingsComponent implements OnInit {
   formData: FormData = new FormData();
 
   ngOnInit() {
-     this.load();
+    this.load();
   }
 
-  load(){
+  load() {
     this.userService.getThings().subscribe((res: ApiCollectionResponse) => {
-      if(res.isSuccessful){    
-        console.log(res.data);
-        this.things = res.data;        
+      if (res.isSuccessful) {
+        console.log(res);
+        this.things = res.data;
       }
     });
   }
-  
-  uploadPhoto(files: FileList, id: string){
-    if(files.item && files.item(0))
-    {
-      this.formData.append('file', files.item(0)!);
-    }
-    this.userService.UploadPhoto(id, this.formData).subscribe((res: ApiResponse)=>{
-      if(res.isSuccessful){
-                
+
+  uploadPhoto(e: any, id: string) {
+    if (e.files != null) {
+      if (e.files.item && e.files.item(0)) {
+        this.formData.append('file',e. files.item(0)!);
+        console.log('dfsddf');
+        this.userService.UploadPhoto(id, this.formData).subscribe((res: ApiResponse) => {
+        console.log(res)
+      })
       }
-    })
+      
+    }
   }
 }
