@@ -5,7 +5,7 @@
   <input [(ngModel)]="prop.name" type="text" placeholder="Enter name" name="psw" id="psw" required>
 
   <label for="psw"><b>Image</b></label>
-  <input [(ngModel)]="prop.image" type="text" placeholder="Select image" name="psw" id="psw" required>
+  <td><input [(ngModel)]="prop.image" type="file" name="psw" id="psw" ></td>
 
   <button type="submit" (click)="Add()" class="registerbtn">Add</button>
   <button type="submit" class="registerbtn" [routerLink]="['/my-things']">Back</button>

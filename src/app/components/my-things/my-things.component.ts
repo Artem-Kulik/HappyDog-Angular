@@ -29,15 +29,16 @@ export class MyThingsComponent implements OnInit {
   }
 
   uploadPhoto(e: any, id: string) {
+    this.formData.delete('file');
     if (e.files != null) {
       if (e.files.item && e.files.item(0)) {
-        this.formData.append('file',e. files.item(0)!);
-        console.log('dfsddf');
+        this.formData.append('file',e.files.item(0)!);
         this.userService.UploadPhoto(id, this.formData).subscribe((res: ApiResponse) => {
-        console.log(res)
-      })
-      }
-      
+          if(res.isSuccessful){
+            this.load();
+          }
+        })
+      }      
     }
   }
 }

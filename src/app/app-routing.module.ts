@@ -13,7 +13,19 @@ const routes: Routes = [
   { path: 'index', component: IndexComponent },
   { path: 'my-things', component: MyThingsComponent },
   { path: 'add-thing', component: AddThingsComponent },
-  { path: 'edit-thing', component: EditThingComponent }
+  { path: 'edit-thing', component: EditThingComponent },
+  { path: 'add-look', component: EditThingComponent }
+  /*,
+  { path: 'edit-profile', component: ProfileEditComponent },
+  {
+    path: 'category',
+    children: [
+      { path: '', component: CategoriesComponent },
+      { path: 'add-category', component: AddCategoryComponent },
+      { path: 'update-category/:id', component: UpdateCategoryComponent },
+      { path: 'category-book/:id', component: CategoryBookComponent }
+    ]
+  },*/
 ];
 
 @NgModule({

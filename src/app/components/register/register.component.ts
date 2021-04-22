@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
   }
 
   Register(){
-
     this.userService.Register(this.prop).subscribe((res: ApiResponse) => {
       if (res.isSuccessful) {
         console.log(res.message);

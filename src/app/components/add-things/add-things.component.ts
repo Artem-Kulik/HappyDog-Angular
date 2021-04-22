@@ -13,6 +13,7 @@ export class AddThingsComponent implements OnInit {
 
   constructor(private userService: UserService,  
               private router: Router) { }
+  formData: FormData = new FormData();
 
   prop: ThingDto = {
     id: '',
@@ -34,5 +35,4 @@ export class AddThingsComponent implements OnInit {
       }
     });
   }
-
 }
