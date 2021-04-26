@@ -1,3 +1,41 @@
-<p>
-  profile works!
-</p>
+<div class="main">
+  <div class="navbar">
+    <div class="navbar-left navbar-text" style="font-size: 18px;">
+      <span class="HappyDog">HAPPY DOG</span>
+    </div>
+    <div class="navbar-center navbar-text">
+      <span class="hover" [routerLink]="['/']">HOME</span>
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/info']">INFO</span>
+
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/info']">SHOP</span>
+    </div>
+    <div class="navbar-right navbar-text">
+      <span class="mainButton Wm" (click)="LogOut()">LOG OUT</span>
+      <span class="profile" [routerLink]="['/profile']">art.kulik2005@gmail.com</span>
+    </div>
+  </div>
+
+  <div class="left-part">
+    <div class="inner-left-part">
+      <div class="photoPart">
+        <div class='Lphoto'>
+        </div>
+      </div>
+      <div class="infoPart">
+          <span class="textInfo">Frank_FFl</span>        
+      </div> 
+
+    </div>
+  </div>
+
+</div>

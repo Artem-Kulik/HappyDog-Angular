@@ -17,14 +17,13 @@ export class IndexComponent implements OnInit {
   IsLoggedIn: boolean=true;
 
   constructor(private userService: UserService) {    
-    
+    this.userService.loginStatus.subscribe((status) => {
+      this.IsLoggedIn = status;
+    });  
   }
 
   ngOnInit() {
-    this.userService.loginStatus.subscribe((status) => {
-      this.IsLoggedIn = status;
-      alert(status);
-    });  
+   
     if(localStorage.getItem("num") == "1")
     {
       this.mainPhoto = "https://localhost:44388/Images/SI4.jpg"

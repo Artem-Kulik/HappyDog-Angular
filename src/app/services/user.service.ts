@@ -10,7 +10,7 @@ import { LoginDto } from '../models/loginDto';
 })
 export class UserService {
   headers: HttpHeaders = new HttpHeaders();
-  loginStatus = new EventEmitter<boolean>(false);
+  loginStatus = new EventEmitter<boolean>();
   
   constructor(private http: HttpClient) { }
   Register(x: RegisterDto): Observable<ApiResponse> {
