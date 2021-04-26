@@ -1,16 +1,41 @@
-<div class="container">
-  <h1>Login</h1>
-  <hr>
+<div class="main">
+  <div class="navbar">
+    <div class="navbar-left navbar-text" style="font-size: 18px;">
+        <span class="HappyDog">HAPPY DOG</span>
+    </div>
+    <div class="navbar-center navbar-text">
+        <span class="hover" [routerLink]="['/']">HOME</span>
 
-  <label for="email"><b>Email</b></label>
-  <input [(ngModel)]="prop.email" type="text" placeholder="Enter Email" name="email" id="email" required>
+        <span class="separator"></span>
+        <span>|</span>
+        <span class="separator"></span>
 
-  <label for="psw"><b>Password</b></label>
-  <input [(ngModel)]="prop.password" type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        <span class="hover" [routerLink]="['/info']">INFO</span>
+    </div>
+    <div class="navbar-right navbar-text">
+        <span class="mainButton Wm" [routerLink]="['/register']">REGISTER</span>
+        <span class="separator"></span>
+        <span class="mainButton Wm" [routerLink]="['/login']">LOGIN</span>
+    </div>
+  </div>
 
-  <button type="submit" (click)="Login()" class="registerbtn">Login</button>
-</div>
+  <div class="register-form">
+    <div class="inner-form">
+      <div class="container" style="color: white;">
+        <h1>Login</h1>
+        <hr>      
+        <label for="email"><b>Email</b></label>
+        <input [(ngModel)]="prop.email" type="text" placeholder="Enter Email" name="email" id="email" required>
+      
+        <label for="psw"><b>Password</b></label>
+        <input [(ngModel)]="prop.password" type="password" placeholder="Enter Password" name="psw" id="psw" required>
+      
+        <button type="submit" (click)="Login()" class="registerbtn">Login</button>
+      </div>
+    </div>
+  </div>
 
-<div class="container signin">
-  <p>Haven`t an account? <span [routerLink]="['/']">Register</span>.</p>
+  <div class="bottom">
+  </div>
+ 
 </div>

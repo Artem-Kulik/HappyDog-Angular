@@ -1,0 +1,281 @@
+.main{
+    width: 100%;
+    min-height: 100%;
+}
+
+.navbar{
+    width: 100%;
+    height: 75px;
+    background-image: linear-gradient(to bottom, #191e0ca8, #ffffff00);
+}
+.navbar-left{
+    float: left;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.navbar-center{
+    float: left;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar-right{
+    float: left;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel{
+    width: 100%;
+    height: 720px;
+    background-size:cover; 
+}
+.carousel-context{
+    height: 645px;
+    width: 100%;
+}
+.next{
+    float: left;
+    height: 100%;
+    width: 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-context{
+    float: left;
+    height: 100%;
+    width: 40%;   
+}
+.main-context-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80%;
+    width: 100%;
+    padding-top: 10%;
+}
+.main-context-bottom{
+    width: 100%;
+    height: 20%;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.freePlace{
+    float: left;
+    height: 100%;
+    width: 25%;
+}
+
+.need{
+    width: 100%;
+    text-align: center;
+    height: 575px;
+    background-image: linear-gradient(to right, #81856e, #c2b2a8, #dab38c);
+}
+.need-top{ 
+width: 55%;
+margin-left: 22.5%;
+height: 40%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+.need-bottom{
+width: 100%;
+height: 60%;
+
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.OneNeed{
+    width: 270px;
+    height: 180px;
+    text-align: left;
+    margin: 2%;
+}
+
+.ico{
+    width: 55px;
+    height: 55px;
+}
+.ico-text{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+}
+.ico-secont-text{
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+}
+.photo{
+    width: 100%;
+    height: 100%; 
+}
+
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 250px;
+}
+footer {
+  padding: 20px;
+  padding-top: 30px;
+    background-image: linear-gradient(to right, #3e3222, #99886d, #5d5742);
+  color: #bbb;
+}
+
+.footer-dark {
+  width: 100%;
+  height: 100%;
+    color:#f0f9ff;
+    background-color:#282d32;
+  }
+  .footer-dark h3 {
+    margin-top:0;
+    margin-bottom:12px;
+    font-weight:bold;
+    font-size:16px;
+  }  
+  .footer-dark ul {
+    padding:0;
+    list-style:none;
+    line-height:1.6;
+    font-size:14px;
+    margin-bottom:0;
+  }  
+  .footer-dark ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.6;
+  }  
+  .footer-dark ul a:hover {
+    opacity:0.8;
+  }  
+  @media (max-width:767px) {
+    .footer-dark .item:not(.social) {
+      text-align:center;
+      padding-bottom:20px;
+    }
+  }  
+  .footer-dark .item.text {
+    margin-bottom:36px;
+  }  
+  @media (max-width:767px) {
+    .footer-dark .item.text {
+      margin-bottom:0;
+    }
+  }
+  .footer-dark .item.text p {
+    opacity:0.6;
+    margin-bottom:0;
+  }  
+  .footer-dark .item.social {
+    text-align:center;
+  }  
+  @media (max-width:991px) {
+    .footer-dark .item.social {
+      text-align:center;
+      margin-top:20px;
+    }
+  }
+  
+.icons{
+    width:46px;
+    height:46px;
+    line-height:36px;
+    display:inline-block;
+    border-radius:50%;
+    margin:0 8px;
+    opacity:0.75;
+}
+  
+.footer-dark .item.social > a:hover {
+    opacity:0.9;
+}  
+.footer-dark .copyright {
+    text-align:center;
+    padding-top:24px;
+    opacity:0.3;
+    font-size:13px;
+    margin-bottom:0;
+}
+.advices{
+    width: 100%;
+    height: 625px;
+}
+.dogs-food{
+	min-height:625px;
+	background-size:contain;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	text-align: center;
+}
+a.dogs-top-food {
+	border: none;
+	outline: 0;
+	color: #fff;
+	background: #27B6DE;
+	padding: 4px 18px 4px;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	font-size:14px;
+	font-weight: 100;
+}
+a.dogs-top-food:hover {
+	background: #196175;
+	text-decoration:none;
+}
+.dogs-food-top-info {
+		padding:5em 0;
+}
+.dogs-food-bottom {
+	margin-top: 3em;
+}
+.dogs-food-info h4 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.3em;
+	margin: 20px 0 10px;
+	font-weight: 400;
+}
+.dogs-food-info p {
+	font-family: 'Arimo', sans-serif;
+	font-size: 0.875em;
+	width: 70%;
+	margin: 0 auto;
+	line-height: 1.5em;
+	padding-bottom: 1em;
+}
+
+.marginTop{
+    margin-top: 75px;
+}
+

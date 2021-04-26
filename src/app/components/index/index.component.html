@@ -1,0 +1,334 @@
+<div class="main">
+    <div id="carousel" class="carousel" style="background-image: url({{mainPhoto}});">
+
+        <div *ngIf="!IsLoggedIn" class="navbar">
+            <div class="navbar-left navbar-text" style="font-size: 18px;">
+                <span class="HappyDog">HAPPY DOG</span>
+            </div>
+            <div class="navbar-center navbar-text">
+                <span class="hover" [routerLink]="['/']">HOME</span>
+
+                <span class="separator"></span>
+                <span>|</span>
+                <span class="separator"></span>
+
+                <span class="hover" [routerLink]="['/info']">INFO</span>
+            </div>
+            <div class="navbar-right navbar-text">
+                <span class="mainButton Wm" [routerLink]="['/register']">REGISTER</span>
+                <span class="separator"></span>
+                <span class="mainButton Wm" [routerLink]="['/login']">LOGIN</span>
+            </div>
+        </div>
+        <div *ngIf="IsLoggedIn" class="navbar">
+            <div class="navbar-left navbar-text" style="font-size: 18px;">
+                <span class="HappyDog">HAPPY DOG</span>
+            </div>
+            <div class="navbar-center navbar-text">
+                <span class="hover" [routerLink]="['/']">HOME</span>
+
+                <span class="separator"></span>
+                <span>|</span>
+                <span class="separator"></span>
+
+                <span class="hover" [routerLink]="['/info']">INFO</span>
+
+
+                <span class="separator"></span>
+                <span>|</span>
+                <span class="separator"></span>
+
+                <span class="hover" [routerLink]="['/info']">SHOP</span>
+            </div>
+            <div class="navbar-right navbar-text">
+                <span class="mainButton Wm" (click)="LogOut()">LOG OUT</span>
+                <span class="profile" [routerLink]="['/profile']">art.kulik2005@gmail.com</span>
+
+            </div>
+        </div>
+
+        <div class="carousel-context">
+            <div (click)="Next()" class="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="50" style="color: rgb(216, 216, 216);"
+                    fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                </svg>
+            </div>
+            <div class="freePlace">
+            </div>
+
+            <div class="main-context">
+                <div class="main-context-top">
+                    <span id="main-thesis" class="main-thesis">{{mainThesis}}</span>
+                    <span id="second-thesis" class="second-thesis">{{secondThesis}}</span>
+                    <span class="mainButton" [routerLink]="['/info']">LEARN BREEDS</span>
+                </div>
+                <div id="points" class="main-context-bottom">
+                    <div *ngIf="condition; then FB else SB"></div>
+                    <ng-template #FB>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16"
+                            style="color: rgb(255, 255, 255);" fill="currentColor" class="bi bi-circle-fill"
+                            viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8" />
+                        </svg>
+                        <svg (click)="Next()" xmlns="http://www.w3.org/2000/svg" width="30" height="16"
+                            style="color: rgb(255, 255, 255);" fill="currentColor" class="bi bi-circle-fill"
+                            viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        </svg>
+                    </ng-template>
+                    <ng-template #SB>
+                        <svg (click)="Next()" xmlns="http://www.w3.org/2000/svg" width="30" height="16"
+                            style="color: rgb(255, 255, 255);" fill="currentColor" class="bi bi-circle-fill"
+                            viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16"
+                            style="color: rgb(255, 255, 255);" fill="currentColor" class="bi bi-circle-fill"
+                            viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8" />
+                        </svg>
+                    </ng-template>
+                </div>
+            </div>
+
+            <div class="freePlace">
+            </div>
+            <div (click)="Next()" class="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50" style="color: rgb(214, 214, 214);"
+                    fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="need">
+        <div class="need-top">
+            <span class="pre">Pre becoming owner of the puppy</span>
+            <span class="pre-info">Just wanting to have a dog is not enough. You have to be prepared for a new
+                full-fledged family member with a personal temperament and character. There are many things you need to
+                know before raising a dog, so I recommend being as vigilant and prudent as possible. Hurrying to buy a
+                dog, you will be happy only until problems arise. When you are truly ready to take on this
+                responsibility, you will be happy every moment of your life with your new friend.</span>
+        </div>
+
+        <div class="need-bottom">
+            <div class="OneNeed">
+                <div class="ico">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55"
+                        style="color: rgba(255, 255, 255, 0.9);" fill="currentColor" class="bi bi-clock-history"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z" />
+                        <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z" />
+                        <path
+                            d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
+                    </svg>
+                </div>
+                <div class="ico-text">
+                    <span class="ico-main">Enough time</span>
+                </div>
+                <div class="ico-secont-text">
+                    <span class="ico-info">The more time you spend with your pet, the more he understands.</span>
+                </div>
+            </div>
+            <div class="OneNeed">
+                <div class="ico">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55"
+                        style="color: rgba(255, 255, 255, 0.9);" fill="currentColor" class="bi bi-fullscreen-exit"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5zm5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5zM0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zm10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4z" />
+                    </svg>
+                </div>
+                <div class="ico-text">
+                    <span class="ico-main">Hight partience</span>
+                </div>
+                <div class="ico-secont-text">
+                    <span class="ico-info">A dog is not a cat that sleeps quietly in bed, so be prepared for constant
+                        cleaning</span>
+                </div>
+            </div>
+            <div class="OneNeed">
+                <div class="ico">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55"
+                        style="color: rgba(255, 255, 255, 0.9);" fill="currentColor" class="bi bi-tornado"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M1.125 2.45A.892.892 0 0 1 1 2c0-.26.116-.474.258-.634a1.9 1.9 0 0 1 .513-.389c.387-.21.913-.385 1.52-.525C4.514.17 6.18 0 8 0c1.821 0 3.486.17 4.709.452.607.14 1.133.314 1.52.525.193.106.374.233.513.389.141.16.258.374.258.634 0 1.011-.35 1.612-.634 2.102-.04.07-.08.137-.116.203a2.55 2.55 0 0 0-.313.809 2.938 2.938 0 0 0-.011.891.5.5 0 0 1 .428.849c-.06.06-.133.126-.215.195.204 1.116.088 1.99-.3 2.711-.453.84-1.231 1.383-2.02 1.856-.204.123-.412.243-.62.364-1.444.832-2.928 1.689-3.735 3.706a.5.5 0 0 1-.748.226l-.001-.001-.002-.001-.004-.003-.01-.008a2.142 2.142 0 0 1-.147-.115 4.095 4.095 0 0 1-1.179-1.656 3.786 3.786 0 0 1-.247-1.296A.498.498 0 0 1 5 12.5v-.018a.62.62 0 0 1 .008-.079.728.728 0 0 1 .188-.386c.09-.489.272-1.014.573-1.574a.5.5 0 0 1 .073-.918 3.29 3.29 0 0 1 .617-.144l.15-.193c.285-.356.404-.639.437-.861a.948.948 0 0 0-.122-.619c-.249-.455-.815-.903-1.613-1.43-.193-.127-.398-.258-.609-.394l-.119-.076a12.307 12.307 0 0 1-1.241-.334.5.5 0 0 1-.285-.707l-.23-.18C2.117 4.01 1.463 3.32 1.125 2.45zm1.973 1.051c.113.104.233.207.358.308.472.381.99.722 1.515 1.06 1.54.317 3.632.5 5.43.14a.5.5 0 0 1 .197.981c-1.216.244-2.537.26-3.759.157.399.326.744.682.963 1.081.203.373.302.79.233 1.247-.05.33-.182.657-.39.985.075.017.148.035.22.053l.006.002c.481.12.863.213 1.47.01a.5.5 0 1 1 .317.95c-.888.295-1.505.141-2.023.012l-.006-.002a3.894 3.894 0 0 0-.644-.123c-.37.55-.598 1.05-.726 1.497.142.045.296.11.465.194a.5.5 0 1 1-.448.894 3.11 3.11 0 0 0-.148-.07c.012.345.084.643.18.895.14.369.342.666.528.886.992-1.903 2.583-2.814 3.885-3.56.203-.116.399-.228.584-.34.775-.464 1.34-.89 1.653-1.472.212-.393.33-.9.26-1.617A6.74 6.74 0 0 1 10 8.5a.5.5 0 0 1 0-1 5.76 5.76 0 0 0 3.017-.872.515.515 0 0 1-.007-.03c-.135-.673-.14-1.207-.056-1.665.084-.46.253-.81.421-1.113l.131-.23c.065-.112.126-.22.182-.327-.29.107-.62.202-.98.285C11.487 3.83 9.822 4 8 4c-1.821 0-3.486-.17-4.709-.452-.065-.015-.13-.03-.193-.047zM13.964 2a1.12 1.12 0 0 0-.214-.145c-.272-.148-.697-.297-1.266-.428C11.354 1.166 9.769 1 8 1c-1.769 0-3.354.166-4.484.427-.569.13-.994.28-1.266.428A1.12 1.12 0 0 0 2.036 2c.04.038.109.087.214.145.272.148.697.297 1.266.428C4.646 2.834 6.231 3 8 3c1.769 0 3.354-.166 4.484-.427.569-.13.994-.28 1.266-.428A1.12 1.12 0 0 0 13.964 2z" />
+                    </svg>
+                </div>
+                <div class="ico-text">
+                    <span class="ico-main">Readiness for difficulties</span>
+                </div>
+                <div class="ico-secont-text">
+                    <span class="ico-info">Don`t all breeds can boast of high intelligence, so be prepared for
+                        difficulties in training.</span>
+                </div>
+            </div>
+            <div class="OneNeed">
+                <div class="ico">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55"
+                        style="color: rgba(255, 255, 255, 0.9);" fill="currentColor" class="bi bi-cash-stack"
+                        viewBox="0 0 16 16">
+                        <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                        <path
+                            d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
+                    </svg>
+                </div>
+                <div class="ico-text">
+                    <span class="ico-main">Fixed costs</span>
+                </div>
+                <div class="ico-secont-text">
+                    <span class="ico-info">Are you ready to constantly spend money on healthy balanced food,
+                        vaccinations and vitamins for your pet?</span>
+                </div>
+            </div>
+            <div class="OneNeed">
+                <div class="ico">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55"
+                        style="color: rgba(255, 255, 255, 0.9);" fill="currentColor" class="bi bi-scissors"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M3.5 3.5c-.614-.884-.074-1.962.858-2.5L8 7.226 11.642 1c.932.538 1.472 1.616.858 2.5L8.81 8.61l1.556 2.661a2.5 2.5 0 1 1-.794.637L8 9.73l-1.572 2.177a2.5 2.5 0 1 1-.794-.637L7.19 8.61 3.5 3.5zm2.5 10a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0zm7 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
+                    </svg>
+                </div>
+                <div class="ico-text">
+                    <span class="ico-main">Sufficient care</span>
+                </div>
+                <div class="ico-secont-text">
+                    <span class="ico-info">If the dog will live in the yard - do not worry, but constant combing and
+                        bathing for a room dog are required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="advices">
+        <div class="dogs-food" style="background-image: url(https://localhost:44388/Images/slider-4-cut.jpg);">
+            <div class="container">
+                <div class="dogs-food-top-info">
+                    <div class="dogs-food-top">
+                        <div class="col-md-4 col-sm-2 dogs-food-info">
+                            <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-1.png">
+                            <h4 class="white">CARE</h4>
+                            <p class="white">We have a duty to take care of our pets, to notice poor health or various
+                                diseases</p>
+                        </div>
+                        <div class="col-md-4 col-sm-2 dogs-food-info">
+                            <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-2.png">
+                            <h4 class="white">Help</h4>
+                            <p class="white">In everything we must help our pets. In no case can our dogs be beaten</p>
+                        </div>
+                        <div class="col-md-4 col-sm-2 dogs-food-info">
+                            <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-3.png">
+                            <h4 class="white">TRAVEL</h4>
+                            <p class="white">Our pets need constant fun walks. After all, dogs need their children
+                                somewhere for their energy. It is best to do this without a leash</p>
+                        </div>
+                        <div class="col-md-4 col-sm-2 dogs-food-info marginTop">
+                            <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-4.png">
+                            <h4 class="white">FRIEND-SHIP</h4>
+                            <p class="white">Being a true friend to the dog and he will protect you in case of danger,
+                                of course, if you have both protective breeds, but even small decorative breeds do their
+                                best to wink to protect you (as funny as it sounds)</p>
+                        </div>
+                        <div class="col-md-4 col-sm-3 dogs-food-info marginTop">
+                            <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-5.png">
+                            <h4 class="white">DOG-HOME</h4>
+                            <p class="white">We must take the dog into the house as a real new member of the family, he
+                                must have a personal place to sleep, but the dog can sleep with you until the molting
+                                period.</p>
+                        </div>
+                        <div class="col-md-4 col-sm-3 dogs-food-info marginTop">
+                            <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-6.png">
+                            <h4 class="white">DOG-FOOD</h4>
+                            <p class="white">In order for a dog to grow up healthy and strong, we must feed it with the
+                                right rational grooming, adding weight, height and features of the breed.</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="div-footer">
+        <!-- <footer class="footer">
+                    <div class="gif">
+                        
+                    </div>
+                    <div class="lastQ">
+                        <span>Are you ready to have a dog?</span>
+                    </div>
+                    <div class="contact">
+                        <h5 class="text-md-center ico-main">Contact Us</h5>
+                        <hr>
+                        <form>
+                            <fieldset class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="password" class="form-control" id="exampleInputEmail1" placeholder="Enter password">
+                            </fieldset>
+                            <fieldset class="form-group text-xs-right" style="text-align: center; margin-top: 30px;">
+                                <span class="mainButton" style="padding: 5px 15px;">Login</span>
+                            </fieldset>
+                        </form>
+                    </div>
+        </footer> -->
+        <div class="footer-dark">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3>Don`t forget</h3>
+                            <ul>
+                                <li><a href="#">Walking</a></li>
+                                <li><a href="#">Eating</a></li>
+                                <li><a href="#">Dresering</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3>Important</h3>
+                            <ul>
+                                <li><a href="#">Love</a></li>
+                                <li><a href="#">Care</a></li>
+                                <li><a href="#">Protect</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 item text">
+                            <h3>As a result</h3>
+                            <p>So, if you are aware of all the responsibilities of the owner, your desire is strong and
+                                unchanging, and not just an instant desire - we kindly ask you to visit "BreedBog" to
+                                choose your favorite breed and our store to buy a dog</p>
+                        </div>
+                        <hr />
+                        <div class="col item social">
+                            <div class="icons"
+                                style="background-image: url(https://localhost:44388/Images/fb.png); background-size: cover;">
+                            </div>
+                            <div class="icons"
+                                style="background-image: url(https://localhost:44388/Images/tw.png); background-size: cover;">
+                            </div>
+                            <div class="icons"
+                                style="background-image: url(https://localhost:44388/Images/inst.png); background-size: cover;">
+                            </div>
+                            <div class="icons"
+                                style="background-image: url(https://localhost:44388/Images/gg.png); background-size: cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+</div>
+
+<!-- <button [routerLink]="['/register']">Register</button>
+<button [routerLink]="['/login']">Login</button> -->

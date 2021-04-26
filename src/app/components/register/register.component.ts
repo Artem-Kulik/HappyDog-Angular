@@ -15,25 +15,29 @@ export class RegisterComponent implements OnInit {
 
   prop: RegisterDto = {
     name: '',
-    email:'',
+    email: '',
     password: '',
     photo: 'Photo'
   };
 
+  ConfirmPassword: string = "";
+
   ngOnInit() {
-    
+
   }
 
-  Register(){
-    this.userService.Register(this.prop).subscribe((res: ApiResponse) => {
-      if (res.isSuccessful) {
-        console.log(res.message);
-        this.router.navigate(['/login']);
-      }
-      else{
-      }
-    });
+  Register() {
+    if (this.prop.password == this.ConfirmPassword) {
+      this.userService.Register(this.prop).subscribe((res: ApiResponse) => {
+        if (res.isSuccessful) {
+          this.router.navigate(['/login']);
+        }
+        else {
+        }
+      });
+    }
+    else{
+      
+    }
   }
-
-
 }

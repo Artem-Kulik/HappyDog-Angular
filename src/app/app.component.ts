@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'season-looks-angular';
+  title = 'season-looks-angular';  
+  ngOnInit() {
+    localStorage.setItem("num", "1")
+  }
 }

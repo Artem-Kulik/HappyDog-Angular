@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
       if (res.isSuccessful) {
         localStorage.setItem("Token", res.token);   
         localStorage.setItem("Id", res.message);   
-        this.router.navigate(['/index']);            
+        this.userService.loginStatus.emit(true);
+        this.router.navigate(['/']);            
       }
       else{
       }
