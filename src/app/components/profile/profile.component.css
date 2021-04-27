@@ -1,22 +1,11 @@
 .container {
     height: 799px;
   }
-  input[type=text], input[type=password], input[type=number], input[type=file] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-  }
   .signin{
   font-size: 18px;  
   color: grey;
   }
-  input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
+
   hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
@@ -161,6 +150,8 @@
     width: 60%;
     height: 100%;
     margin-left: 20%;
+    background-color: rgba(0, 0, 0, 0.045);
+border-radius: 20px;
 }
 
 .photoPart{
@@ -182,14 +173,29 @@
     width: 280px;
     height: 340px;
     background-color: cornsilk;
-    background-image: url(https://localhost:44388/UserImages/slider-8.jpg);
-    background-size: cover;
+    background-image: url(https://localhost:44388/InfoImages/default.jpg);  
+    background-size:cover;
     border-radius: 10px;
 }
 
 .textInfo{
-    color: #606350;
+    color: #e2e2e2;
     font-size: 36px;
     letter-spacing: 2px;
-    padding-top: 20px;
+    padding: 20px;
+    width: 50%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    height: 60px;
+
+    background-color: rgba(0, 0, 0, 0.178);
+    border-radius: 10px;
+    
+    border: solid 2px rgba(0, 0, 0, 0.41);
+outline: 0;
+    text-align: center;
+}
+
+.textInfo:hover{
+  border: solid 2px rgba(255, 255, 255, 0.81);
+  border-radius: 10px;
 }
