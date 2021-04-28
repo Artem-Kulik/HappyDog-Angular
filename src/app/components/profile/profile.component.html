@@ -23,19 +23,65 @@
       <span class="mainButton Wm" (click)="LogOut()">LOG OUT</span>
       <span class="profile" [routerLink]="['/profile']">art.kulik2005@gmail.com</span>
     </div>
-    <hr width="100%" style="margin-top:8px;"/>
+    <hr width="100%" style="margin-top:6px;" />
   </div>
-  <div class="left-part">
-    <div class="inner-left-part">
-      <div class="photoPart">
-        <div class='Lphoto'>
+  <div class="part">
+    <div class="left-part">
+      <div class="inner-left-part">
+        <div class="photoPart">
+          <div class='Lphoto'>
+          </div>
+        </div>
+        <div class="infoPart">
         </div>
       </div>
-      <div class="infoPart">
-          <input type="text" class="textInfo" value="Frank_FFl">
-      </div> 
+    </div>
 
+    <div class="left-part">
+      <div class="inner-right-part">
+        <div class="top-text">
+          <span>Not enough money?</span>
+          <br />
+          <span>This game will help you earn ;)</span>
+          <hr style="margin-top: 40px; margin-bottom: 0;" />
+        </div>
+        <div class="image-part">
+          <div class="game-help-info">
+           <span>Won in a row:</span>
+           <span style="margin-top: 15px;"><span class="times"><b>{{prop.win}}</b></span> times</span>
+          </div>
+          <div class="image" style="background-image: url(https://localhost:44388{{prop.breedImage}}); background-size: cover;">
+          </div>
+          <div class="game-help-info">
+            <span>You will get:</span>
+           <span style="margin-top: 15px;"><span class="times"><b>{{prop.prise}}</b></span> $</span>
+          </div>
+        </div>
+        <div class="answer-part">
+          <span (click)="ChangeF()" class="answer">{{prop.firstAnswer}}</span>
+          <span (click)="ChangeS()" class="answer">{{prop.secondAnswer}}</span>
+          <span (click)="ChangeT()" class="answer">{{prop.thirdAnswer}}</span>
+        </div>
+
+        <div class="last-part">
+          <span class="YourAnswer">Your answer: </span>
+          <span class="myAnswer"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+            </svg>
+            {{myAnswer}}
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+            </svg>
+          </span>
+          <span (click)="Next()" class="mainButton Wm" style="height: 52px;">Next
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
-
 </div>

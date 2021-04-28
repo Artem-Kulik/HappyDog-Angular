@@ -3,7 +3,7 @@
 
         <div *ngIf="!IsLoggedIn" class="navbar">
             <div class="navbar-left navbar-text" style="font-size: 18px;">
-                <span class="HappyDog">HAPPY DOG</span>
+                <span class="HappyDog"><b>HAPPY DOG</b></span>
             </div>
             <div class="navbar-center navbar-text">
                 <span class="hover" [routerLink]="['/']">HOME</span>
@@ -22,7 +22,7 @@
         </div>
         <div *ngIf="IsLoggedIn" class="navbar">
             <div class="navbar-left navbar-text" style="font-size: 18px;">
-                <span class="HappyDog">HAPPY DOG</span>
+                <span class="HappyDog"><b>HAPPY DOG</b></span>
             </div>
             <div class="navbar-center navbar-text">
                 <span class="hover" [routerLink]="['/']">HOME</span>

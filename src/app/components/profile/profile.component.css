@@ -30,10 +30,10 @@
   }
   
   .HappyDog{ 
+    font-family: 'Architects Daughter', cursive;
     font-family: 'Dancing Script', cursive;
-    font-family: 'Great Vibes', cursive;
-    font-family: 'Special Elite', cursive;
-  
+    font-family: 'Pacifico', cursive;
+    font-family: 'Rajdhani', sans-serif;  
     font-size: 20px;
   }
   
@@ -112,6 +112,12 @@
     background-image: linear-gradient(to right, #81856e, #c2b2a8, #dab38c);
     background-size: cover;
   }
+
+  .part{
+    width: 100%;
+    height: 862px;
+    background-image: linear-gradient(to right, #81856e, #c2b2a8, #dab38c);
+  }
   .register-form{
     width: 100%;
     height: 60%;
@@ -143,7 +149,8 @@
 
 .left-part{
     width: 50%;
-    height: 862px;
+    height: 100%;
+    float: left;
 }
 
 .inner-left-part{
@@ -151,7 +158,6 @@
     height: 100%;
     margin-left: 20%;
     background-color: rgba(0, 0, 0, 0.045);
-border-radius: 20px;
 }
 
 .photoPart{
@@ -173,7 +179,7 @@ border-radius: 20px;
     width: 280px;
     height: 340px;
     background-color: cornsilk;
-    background-image: url(https://localhost:44388/InfoImages/default.jpg);  
+    background-image: url(https://localhost:44388/Images/default.jpg);  
     background-size:cover;
     border-radius: 10px;
 }
@@ -191,11 +197,123 @@ border-radius: 20px;
     border-radius: 10px;
     
     border: solid 2px rgba(0, 0, 0, 0.41);
-outline: 0;
+  outline: 0;
     text-align: center;
 }
 
 .textInfo:hover{
   border: solid 2px rgba(255, 255, 255, 0.81);
   border-radius: 10px;
+}
+
+.inner-right-part{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.055);
+}
+.top-text{
+  width: 100%;
+  text-align: center;
+
+    color: #e2e2e2;
+    font-size: 36px;
+    letter-spacing: 2px;
+    padding: 20px;
+    font-family: "Open Sans", Arial, sans-serif;
+    padding-top: 40px;
+}
+
+.image-part{
+  width: 100%;
+  height: 35%;
+}
+.image{
+  height: 92%;
+  width: 48%;
+  float: left;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.game-help-info{
+  height: 92%;
+  float: left;
+  width: 26%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: #e2e2e2;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+.answer-part{
+  height:22%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.answer{
+  color: #e2e2e2;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-family: "Open Sans", Arial, sans-serif;
+  margin: 0px 30px;
+
+  padding: 15px 30px;
+  background-color: rgba(0, 0, 0, 0.062);
+}
+.answer:hover{
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  margin: 0px 28px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.11);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.651);
+  transition: 0.1s;
+  cursor:-webkit-grabbing;
+}
+
+.times{
+  font-size: 24px;
+  font-family: 'New Tegomin', serif;
+}
+
+.last-part{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.YourAnswer{
+  color: #e2e2e2;
+  font-size: 28px;
+  letter-spacing: 2px;
+  font-family: 'Amatic SC', cursive;
+  font-family: 'Cinzel', serif;
+  font-family: 'Courgette', cursive;
+  font-family: 'Noticia Text', serif;
+  font-family: 'Patrick Hand', cursive;
+  font-family: 'Quattrocento Sans', sans-serif;
+  margin-right: 50px;
+}
+
+.myAnswer{
+  color: #e2e2e2;
+  font-size: 32px;
+  letter-spacing: 2px;
+  font-family: 'Amatic SC', cursive;
+  font-family: 'Cinzel', serif;
+  font-family: 'Courgette', cursive;
+  font-family: 'Noticia Text', serif;
+  font-family: 'Orbitron', sans-serif;
+  font-family: 'Patrick Hand', cursive;
+  font-family: 'Quattrocento Sans', sans-serif;
+  filter: drop-shadow(0 0 0.5px rgb(255, 255, 255));
+  margin-right: 60px;
+
 }
