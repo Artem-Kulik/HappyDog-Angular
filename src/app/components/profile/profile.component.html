@@ -20,8 +20,8 @@
       <span class="hover" [routerLink]="['/info']">SHOP</span>
     </div>
     <div class="navbar-right navbar-text">
-      <span class="mainButton Wm" (click)="LogOut()">LOG OUT</span>
       <span class="profile" [routerLink]="['/profile']">art.kulik2005@gmail.com</span>
+      <span class="mainButton Wm" (click)="LogOut()">LOG OUT</span>
     </div>
     <hr width="100%" style="margin-top:6px;" />
   </div>
@@ -33,6 +33,12 @@
           </div>
         </div>
         <div class="infoPart">
+          <input type="text" class="textInfo" value="{{myInfo.name}}">
+          <input type="text" class="textInfo" value="{{myInfo.email}}">
+          <input type="text" class="textInfo" value="{{myInfo.phoneNumber}}">
+          <input type="text" class="textInfo" value="{{myInfo.city}}">
+
+          <span class="BTB">Your balance: <span class="coin">{{myInfo.coins}} $</span></span>
         </div>
       </div>
     </div>

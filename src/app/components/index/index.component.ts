@@ -23,7 +23,10 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+    this.userService.loginStatus.subscribe((status) => {
+      this.IsLoggedIn = status;
+    });  
+    console.log(this.IsLoggedIn);
     if(localStorage.getItem("num") == "1")
     {
       this.mainPhoto = "https://localhost:44388/Images/SI4.jpg"

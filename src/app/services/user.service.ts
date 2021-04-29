@@ -2,7 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegisterDto } from '../models/registerDto';
 import { Observable } from 'rxjs';
-import { ApiCollectionResponse, ApiResponse, ApiTokenResponse } from '../models/apiResponse';
+import { ApiCollectionResponse, ApiResponse, ApiSingleResponse, ApiTokenResponse } from '../models/apiResponse';
 import { LoginDto } from '../models/loginDto';
 
 @Injectable({
@@ -32,4 +32,8 @@ export class UserService {
     localStorage.removeItem("Id");
     this.loginStatus.emit(false);
   }
+
+  getUserInfo(id:string): Observable<ApiSingleResponse> {
+    return this.http.get<ApiSingleResponse>('https://localhost:44388/api/user/'+id);
+  }  
 }

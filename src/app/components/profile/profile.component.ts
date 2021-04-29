@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApiResponse, ApiSingleResponse } from 'src/app/models/apiResponse';
 import { BreedGameDto } from 'src/app/models/BreedGameDto';
 import { Result } from 'src/app/models/result';
+import { userInfoDto } from 'src/app/models/userInfoDto';
 import { BreedGameService } from 'src/app/services/breed-game.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -28,6 +29,15 @@ export class ProfileComponent implements OnInit {
     win: 1
   };
 
+  myInfo: userInfoDto = {
+    name: '',
+    city: '',
+    email: '',
+    phoneNumber: '',
+    coins: 0,
+    photo: ''
+  };
+
   res: Result = {
     id: '',
     res: false
@@ -37,6 +47,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.getRandomBreed();
+    this.getUserInfo();
   }
   getRandomBreed() {
     console.log("getRandomBreed");
@@ -48,6 +59,17 @@ export class ProfileComponent implements OnInit {
         console.log("Error get breed")
       }
     });
+  }
+
+  getUserInfo() {
+    var id = localStorage.getItem("Id");
+    if (id != null) {
+      this.userService.getUserInfo(id).subscribe((res: ApiSingleResponse) => {
+        if (res.isSuccessful) {
+          this.myInfo = res.data
+        }        
+      });
+    }
   }
 
   Next() {
@@ -62,15 +84,15 @@ export class ProfileComponent implements OnInit {
         this.getRandomBreed();
       });
     }
-    else{
+    else {
       this.res.res = true;
       this.breedGameService.AnswerRes(this.res).subscribe((res: ApiResponse) => {
         this.getRandomBreed();
       });
     }
     this.myAnswer = "Select answer";
+    this.getUserInfo();
   }
-
   LogOut() {
     this.userService.LogOut();
     this.router.navigate(['/']);
