@@ -1,5 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { ApiSingleResponse } from 'src/app/models/apiResponse';
 import { UserService } from 'src/app/services/user.service';
 import { isBlock } from 'typescript';
 
@@ -14,17 +15,28 @@ export class IndexComponent implements OnInit {
   secondThesis: string = "";
   mainPhoto: string = "";
   condition: boolean=false;
-  IsLoggedIn: boolean=true;
+  IsLoggedIn: boolean;
+
+  email:string='email.com';
 
   constructor(private userService: UserService) {    
-    this.userService.loginStatus.subscribe((status) => {
-      this.IsLoggedIn = status;
-    });  
+    this.IsLoggedIn = true;
+    this.getUserInfo();
   }
-
+  getUserInfo() {
+    var id = localStorage.getItem("Id");
+    if (id != null) {
+      this.userService.getUserInfo(id).subscribe((res: ApiSingleResponse) => {
+        if (res.isSuccessful) {
+          this.email = res.data.email
+        }        
+      });
+    }
+  }
   ngOnInit() {
     this.userService.loginStatus.subscribe((status) => {
       this.IsLoggedIn = status;
+      console.log(status)
     });  
     console.log(this.IsLoggedIn);
     if(localStorage.getItem("num") == "1")

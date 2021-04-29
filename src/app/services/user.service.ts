@@ -31,6 +31,7 @@ export class UserService {
     localStorage.removeItem("Token");
     localStorage.removeItem("Id");
     this.loginStatus.emit(false);
+    console.log('logout');
   }
 
   getUserInfo(id:string): Observable<ApiSingleResponse> {

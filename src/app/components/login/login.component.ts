@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("Token", res.token);   
         localStorage.setItem("Id", res.message);   
         this.userService.loginStatus.emit(true);
+        console.log('QQq');
         this.router.navigate(['/']);            
       }
       else{
