@@ -153,12 +153,12 @@
           <span><b>Add photo form</b></span>
         </div>
         <div class="addPhoto">
-          <div class="editform2">
+          <div class="editform2" style="background-image: url({{imgSrc}});">
           </div>
           <div class="AddB">
-            <!-- <input class="photoLAdd mainButton Wm" style="background-color: transparent;  border: 2px solid white;
-            padding: 0.675rem 1.2rem;" type="file" (change)="uploadPhoto($event.target)" name="psw" id="psw" required> 
-            <span class="mainButton Wm">Add photo</span> -->
+            <input class="photoLAdd mainButton Wm" style="background-color: transparent;  border: 2px solid white;
+            padding: 0.675rem 1.2rem;" type="file" (change)="uploadPhoto($event)" name="psw" id="psw"> 
+            <span class="mainButton Wm" (click)="savePhoto()">Add photo</span>
           </div>
         </div>
       </div>
@@ -210,7 +210,7 @@
               value="{{AddDog.price}}">
 
           <label for="email" style="word-wrap:normal"><b>Info:</b></label>
-          <input type="text" class="Description" placeholder="Enter info" [(ngModel)]="AddDog.myDescription"
+          <input type="text" class="Description" placeholder="Enter info" [(ngModel)]="AddDog.info"
             value="{{AddDog.myDescription}}" name="description" id="description" required>
 
           <div class="center">

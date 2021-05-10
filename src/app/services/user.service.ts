@@ -24,7 +24,7 @@ export class UserService {
     return this.http.post<ApiTokenResponse>('https://localhost:44388/api/account/login', x);
   }  
 
-  UploadPhoto(id: string, file: FormData):  Observable<ApiResponse> {
+  UploadPhoto(id: number, file: FormData):  Observable<ApiResponse> {
     this.headers.append('Content-Type', 'multipart/form-data');
     return this.http.post<ApiResponse>('https://localhost:44388/api/image/AddMyDogImage/'+id, file, {headers: this.headers})
   }

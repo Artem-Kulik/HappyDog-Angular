@@ -35,6 +35,7 @@ export class MyDogsComponent implements OnInit {
   formData: FormData = new FormData();
   DogIdAddPhoto: number = 0;
   part: string = 'edit';
+  imgSrc: string = '';
 
   EditDog: SaleDto = {
     name: '',
@@ -114,17 +115,19 @@ export class MyDogsComponent implements OnInit {
     });
   }
 
-  uploadPhoto(event: EventTarget) {
-    // if (event != null) {
-    //   if (event.files.item && event.files.item(0)) {
-    //     this.formData.append('file', event.files.item(0) as File);
-    //   }
-    //   this.userService.UploadPhoto(this.EditDog.id.toString(), this.formData).subscribe((res: ApiResponse) => {
-    //     if (res.isSuccessful) {
+  uploadPhoto(e: any) {
+    if (e.target!= null) {
+      if (e.target.files && e.target.files.item(0)) {
+        this.formData.append('file', e.target.files.item(0) as File);
+        console.log(e.target.files);
+        this.imgSrc = URL.createObjectURL(e.target.files[0]);
+      }
+      // this.userService.UploadPhoto(this.EditDog.id.toString(), this.formData).subscribe((res: ApiResponse) => {
+      //   if (res.isSuccessful) {
 
-    //     }
-    //   });
-    // }
+      //   }
+      // });
+    }
   }
 
   EditMain() {
@@ -151,5 +154,12 @@ export class MyDogsComponent implements OnInit {
   }
   Sale() {
     this.part = 'sale';
+  }
+  savePhoto(){
+    this.userService.UploadPhoto(this.EditDog.id, this.formData).subscribe((res: ApiResponse) => {
+        if (res.isSuccessful) {
+          this.notifier.notify('success', 'Dog photo was successfully added!');
+        }
+      });
   }
 }
