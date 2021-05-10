@@ -1,0 +1,388 @@
+.HappyDog{ 
+    font-family: 'Architects Daughter', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Rajdhani', sans-serif;  
+    font-size: 20px;
+  }
+  
+  .navbar{
+      height: 75px;
+    width: 100%; 
+    background-image: linear-gradient(to right, #81856e, #c2b2a8, #dab38c);
+  }
+  .navbar-left{
+    float: left;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+  .navbar-center{
+    float: left;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar-right{
+    float: left;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar-text{
+    color: whitesmoke;
+    font-size: 14px;
+    letter-spacing: 3px;   
+    font-family: "Open Sans", Arial, sans-serif;
+    float: left;
+  }
+  
+  .hover:hover{
+    filter: drop-shadow(0 0 10px rgb(255, 255, 255));
+    cursor: pointer;
+    transition: 0.15s;
+    text-decoration: underline;
+  }
+  
+  .separator{
+    width: 15px;
+  }
+  .mainButton{
+    border-width: 2px;
+    border-color: #fff;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    outline: none;
+    border-radius: 4px;
+    border: 2px solid white;
+    padding: 0.675rem 1.2rem;
+    margin-top: 50px;
+  }
+  .mainButton:hover{
+    color: black;
+    background-color: white;
+    transition: 0.4s;
+  }
+  .Wm{
+    margin: 0;
+  }
+  
+  .main{
+    width: 100%;
+    background-image: linear-gradient(to right, #81856e, #c2b2a8, #dab38c);
+    background-size: cover;
+  }
+
+  .profile{
+    letter-spacing: 2px;
+    margin-right: 20px;
+}
+.profile:hover{
+    cursor: pointer;
+    transition: 0.15s;
+    text-decoration: underline;
+}
+
+.conteiner{
+    height: 862px;
+    width: 100%;
+}
+
+.menu{
+    height: 100%;
+    float: left;
+    width: 17%;
+    margin-left: 9.5%;
+    background-color: rgba(0, 0, 0, 0.075);
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.context{
+    width: 64%;
+    background-color: rgba(0, 0, 0, 0.075);
+    height: 100%;
+    float: left;    
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.hr1{
+    width: 100%;
+    border: 0;
+    padding: 0;
+    height: 2.5px;
+    background: rgb(255, 255, 255, 0.7);    
+    margin-top: 6px;
+}
+.manu-part{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 4px dashed rgba(255, 255, 255, 0.7);  
+}
+
+.menu-text{
+  color: whitesmoke;
+  font-size: 20px;
+  letter-spacing: 4px;  
+  filter: drop-shadow(0 0 5px rgb(255, 255, 255));
+  font-family: "Open Sans", Arial, sans-serif;
+}
+.menu-text-mini{
+  color: whitesmoke;
+  font-size: 20px;
+  letter-spacing: 4px;  
+  filter: drop-shadow(0 0 0.5px rgb(255, 255, 255, 0.7));
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+.menu-text:hover{
+  filter: drop-shadow(0 0 50px rgb(255, 255, 255));
+  cursor: pointer;
+  text-decoration: underline;
+  transition: 1s;
+}
+
+.manu-part-mini{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2.5px solid rgba(255, 255, 255, 0.7);  
+  border-bottom: 2.5px solid rgba(255, 255, 255, 0.7);  
+}
+
+.context-top{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 2.5px solid rgba(255, 255, 255, 0.7);  
+}
+.menu-text-context{
+margin-left: 15%;  
+color: #ffffffcc;
+  font-size: 22px;
+  letter-spacing: 5px; 
+  font-family: 'Architects Daughter', cursive;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Pacifico', cursive;
+  font-family: 'Rajdhani', sans-serif;  
+  filter: drop-shadow(0 0 0.5px rgb(255, 255, 255, 0.7));
+}
+
+.context-top-1{
+  width: 100%;
+  height: 40%;
+  border-bottom: 4px dashed rgba(255, 255, 255, 0.9);
+
+}
+
+.context-photo{
+  width: 35%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  float: left;
+  align-items: center;
+}
+
+.MainPhoto{
+  height: 90%;
+  width: 310px;
+  border: 6px solid rgba(255, 255, 255, 0.9);
+  border-radius: 100%;
+  background-size: cover;  
+}
+
+.BaseInfo{
+  width: 65%;
+  height: 100%;
+  float: left;
+}
+
+.fisrtBreed{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fisrtBreed-text{
+  color: #ffffffcc;
+  font-size: 46px;
+  letter-spacing: 6px;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+.secondBreed-text{
+  color: #ffffffcc;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+.descriptionBreed{
+  width: 80%;
+  margin-left: 10%;
+  height: 30%;
+  text-align: center; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.baseInfo-inner{
+  width: 100%;
+  height: 40%;
+}
+.part-Binfo{
+  width: 50%;
+  height: 100%;
+  float: left;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.Binfo-text{
+  margin: 10px;
+  color: #ffffffcc;
+  font-size: 18px;
+  letter-spacing: 3px;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+.Theses{
+  width: 70%;
+  margin-left: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.thesis{
+  color: whitesmoke;
+  letter-spacing: 3px;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 18px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+padding-bottom: 7px;
+border-radius: 20px;
+margin-bottom: 40px;
+text-align: left;
+
+padding-right: 20px;
+padding-left: 20px;
+}
+
+.mainMoments{
+  color: #ffffffcc;
+  font-size: 46px;
+  letter-spacing: 6px;
+  font-family: "Open Sans", Arial, sans-serif;
+
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.infoZ{
+  margin: 15px;
+}
+
+.BigPhoto{
+  width: 85%;
+  height: 70%;
+  margin-left: 7.5%;
+  background-size:cover;
+}
+
+.BigDescription{
+  width: 85%;
+  margin-left: 7.5%;
+  padding: 3% 4%;
+
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.bigDescription-text{
+  color: #ffffffe8;
+  font-size: 20px;
+  letter-spacing: 4px;
+  font-family: 'Quintessential', cursive;
+}
+
+.MainCharacteristic{
+width: 100%;  
+height: 50%;
+margin-top: 2%;
+margin-bottom: 4%;
+}
+
+.MainCharacteristic-top{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #ffffffcc;
+  font-size: 46px;
+  letter-spacing: 6px;
+  font-family: "Open Sans", Arial, sans-serif;  
+}
+
+.MainCharacteristic-bottom{
+  width: 100%;
+  height: 80%;
+}
+
+
+.part-33{
+  height: 33%;
+  width: 33%;
+  float: left;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin: 0.3%;
+  margin-right: 0;
+}
+
+  
+.progress{
+  width: 100%;
+  max-width: 260px;
+  height: 20px;
+  background: #e1e4e8;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+  .progress-bar{
+    background-color: #e72929;
+    
+}
+
+.textLast{
+ color: #e1e4e8;
+font-size: 18px;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace;
+}
+
+/* background-image: linear-gradient(to right, #81856e, #c2b2a8, #dab38c); */

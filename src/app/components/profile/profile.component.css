@@ -212,14 +212,14 @@
   font-size: 15px;
   letter-spacing: 2px;
   padding: 20px;  
-  padding-bottom: 7px;
+  padding-bottom: 4px;
   margin-bottom: 15px;
   width: 70%;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   height: 60px;
   background-color: transparent;
   
-  border-bottom: solid 2px rgba(0, 0, 0, 0.18) !important;
+  border-bottom: solid 2px rgba(255, 255, 255, 0.3) !important;
   border: none;
   outline: 0;
   text-align: center;

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiResponse, ApiSingleResponse } from 'src/app/models/apiResponse';
 import { BreedGameDto } from 'src/app/models/BreedGameDto';
 import { Result } from 'src/app/models/result';
@@ -16,7 +18,10 @@ export class ProfileComponent implements OnInit {
 
   constructor(private userService: UserService,
     private router: Router,
-    private breedGameService: BreedGameService) { }
+    private breedGameService: BreedGameService,
+    private spinner: NgxSpinnerService,
+    private notifier:NotifierService) { 
+    }
 
   prop: BreedGameDto = {
     id: -1,
@@ -28,8 +33,8 @@ export class ProfileComponent implements OnInit {
     prise: 100,
     win: 1
   };
-
   myInfo: userInfoDto = {
+    id: '',
     name: '',
     city: '',
     email: '',
@@ -37,7 +42,6 @@ export class ProfileComponent implements OnInit {
     coins: 0,
     photo: ''
   };
-
   res: Result = {
     id: '',
     res: false
@@ -46,8 +50,13 @@ export class ProfileComponent implements OnInit {
   myAnswer: string = 'Select answer';
 
   ngOnInit() {
+    this.spinner.show()
     this.getRandomBreed();
     this.getUserInfo();
+    
+    setTimeout(() => {
+      this.spinner.hide()
+    }, 400);
   }
   getRandomBreed() {
     console.log("getRandomBreed");
@@ -72,24 +81,36 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  Edit(){
+    this.userService.editUserInfo(this.myInfo).subscribe((res: ApiResponse) => {
+      if (res.isSuccessful) {
+        this.getUserInfo();           
+        this.notifier.notify('success', 'Info was updated');    
+      }
+      else {
+        this.notifier.notify('error', 'Error in input (...)');   
+      }
+    });
+  }
+
   Next() {
     var id = localStorage.getItem("Id");
     if (id != null) {
       this.res.id = id;
     }
-    console.log(this.myAnswer + " ? " + this.prop.rightAnswer);
     if (this.myAnswer != this.prop.rightAnswer) {
       this.res.res = false;
+      this.notifier.notify('error', 'Wrong answer - ' + this.prop.prise + "$");
       this.breedGameService.AnswerRes(this.res).subscribe((res: ApiResponse) => {
-        this.getRandomBreed();
       });
     }
     else {
       this.res.res = true;
+      this.notifier.notify('success', 'Right answer + ' + this.prop.prise + "$");   
       this.breedGameService.AnswerRes(this.res).subscribe((res: ApiResponse) => {
-        this.getRandomBreed();
       });
     }
+    this.ngOnInit();
     this.myAnswer = "Select answer";
     this.getUserInfo();
   }

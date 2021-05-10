@@ -1,0 +1,135 @@
+.main{
+    height: 100%;
+    width: 100%;
+}
+
+.fields{
+    width: 100%;
+}
+
+.moreinfo{
+    text-align: center;
+    height: 25px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.my-scroll{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 680px;
+}
+
+.left{
+width: 20%;
+float: left;
+
+}
+
+.right{
+    background-color: rgb(218, 175, 144);
+    float: left;
+}
+
+.f9{
+padding: 0;
+padding-left: 110px;
+}
+
+.f10{
+    padding: 0;
+    padding-left: 155px;
+    }
+
+.mr-t{
+    padding-top: 20px;
+}
+
+.separator{
+    padding: 7px;
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea{
+    margin-bottom: 15px;
+}
+
+.desc{
+    margin-top: 30px;
+    width: 94.5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.inp{
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.mainButton{
+    border-width: 2px;
+    border-color: #fff;
+    color: black;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    outline: none;
+    border-radius: 4px;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 0.675rem 1.2rem;
+    align-self: center;
+  }
+  .mainButton:hover{
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: 0.4s;
+  }
+  .Wm{
+    margin: 0;
+  }
+
+  .margA{
+      margin-top: 40px;
+  }
+
+  .href{
+      color: white;
+  }
+
+  .href:hover{
+      transition: 0.5s;
+      color: black;
+      cursor: pointer;
+      text-decoration: underline;
+  }
+
+  .select { 
+    display:flex;
+    flex-direction: column;
+    position:relative;
+    font-size: 18px;
+    text-align: left;
+    width: 100%;
+    margin: 5px 0 22px 0;
+    height:40px;  
+    color: #222;
+      }
+
+.infoBig{
+max-width: 400px;
+} 
+
+.price{
+    min-width: 80px;
+}
+
+.centr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

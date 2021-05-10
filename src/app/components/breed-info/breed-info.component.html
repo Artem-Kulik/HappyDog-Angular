@@ -1,0 +1,190 @@
+<div class="main">
+  <div *ngIf="!IsLoggedIn" class="navbar">
+    <div class="navbar-left navbar-text" style="font-size: 18px;">
+      <span class="HappyDog"><b>HAPPY DOG</b></span>
+    </div>
+    <div class="navbar-center navbar-text">
+      <span class="hover" [routerLink]="['/']">HOME</span>
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/info']">INFO</span>
+    </div>
+    <div class="navbar-right navbar-text">
+      <span class="mainButton Wm" [routerLink]="['/register']">REGISTER</span>
+      <span class="separator"></span>
+      <span class="mainButton Wm" [routerLink]="['/login']">LOGIN</span>
+    </div>
+    <hr class="hr1" />
+
+  </div>
+  <div *ngIf="IsLoggedIn" class="navbar">
+    <div class="navbar-left navbar-text" style="font-size: 18px;">
+      <span class="HappyDog"><b>HAPPY DOG</b></span>
+    </div>
+    <div class="navbar-center navbar-text">
+      <span class="hover" [routerLink]="['/']">HOME</span>
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/info']">INFO</span>
+
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/shop']">SHOP</span>
+      
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/my-dogs']">MY DOGS</span></div>
+    <div class="navbar-right navbar-text">
+      <span class="profile" [routerLink]="['/profile']">{{email}}</span>
+      <span class="mainButton Wm" (click)="LogOut()">LOG OUT</span>
+    </div>
+    <hr class="hr1" />
+  </div>
+
+  <div class="conteiner">
+    <div class="menu">
+      <div class="manu-part-mini">
+        <span class="menu-text-mini" (click)="Back()">{{mainBreed.dogType}}</span>
+      </div>
+      <div *ngFor="let breed of breeds;" class="manu-part">
+        <span class="menu-text" (click)="ShowInfo(breed.id)">{{breed.breed}}</span>
+      </div>
+    </div>
+    <div class="context">
+      <div class="context-top">
+        <span class="menu-text-context"><b>Info / {{mainBreed.dogType}} / {{mainBreed.breed}}</b></span>
+      </div>
+
+      <div class="context-top-1">
+        <div class="context-photo">
+          <div class="MainPhoto" style="background-image: url(https://localhost:44388/{{mainBreed.mainPhoto}});">
+          </div>
+        </div>
+        <div class="BaseInfo">
+          <div class="fisrtBreed">
+            <span class="fisrtBreed-text">{{mainBreed.breed}}</span>
+          </div>
+          <div class="descriptionBreed">
+            <span class="secondBreed-text">{{mainBreed.mainDescription}}</span>
+          </div>
+          <div class="baseInfo-inner">
+            <div class="part-Binfo">
+              <span class="Binfo-text">Height: {{mainBreed.height}}</span>
+              <span class="Binfo-text">Country: {{mainBreed.country}}</span>
+            </div>
+            <div class="part-Binfo">
+              <span class="Binfo-text">Weight: {{mainBreed.weight}}</span>
+              <span class="Binfo-text">Life expectancy: {{mainBreed.lifeExpectancy}}</span>
+            </div>
+          </div>
+        </div>      
+        
+      </div>
+
+      <div class="Theses">
+        <span class="mainMoments">Main moments:</span>
+        <span class="thesis" *ngFor="let thesis of theses;">
+          <span class="infoZ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+              class="bi bi-info-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+              <path
+                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+            </svg>
+          </span>
+          <span>{{thesis.thesis}}</span>
+        </span>
+      </div>
+
+      <div class="BigPhoto" style="background-image: url(https://localhost:44388/{{mainBreed.bigPhoto}});">
+      </div> 
+
+      <div class="BigDescription">
+        <span class="bigDescription-text">{{mainBreed.bigDescription}}</span>
+      </div>
+
+      <div class="MainCharacteristic">
+        <div class="MainCharacteristic-top">
+          <span>{{mainBreed.breed}} characteristic</span>
+        </div>
+        <div class="MainCharacteristic-bottom">
+          <div class="part-33"> 
+            <span class="textLast" style="letter-spacing: 2px;"><b>Aggressiveness</b></span>
+             <span class="textLast">Rating ({{mainBreed.aggressiveness}}/5)</span>
+            <div class="progress">
+              <span class="progress-bar" style="width: {{mainBreed.aggressiveness * 20}}%"></span>
+            </div>
+          </div>          
+          <div class="part-33"> 
+            <span class="textLast" style="letter-spacing: 2px;"><b>Molting</b></span>
+            <span class="textLast">Rating ({{mainBreed.molting}}/5)</span>
+            <div class="progress">
+              <span class="progress-bar" style="width: {{mainBreed.molting * 20}}%"></span>
+            </div>
+          </div>
+          <div class="part-33"> 
+            <span class="textLast" style="letter-spacing: 2px;"><b>Health</b></span>
+            <span class="textLast">Rating ({{mainBreed.health}}/5)</span>
+            <div class="progress">
+              <span class="progress-bar" style="width: {{mainBreed.health * 20}}%"></span>
+            </div>
+          </div>
+          <div class="part-33"> 
+            <span class="textLast" style="letter-spacing: 2px;"><b>Intelligence</b></span>
+            <span class="textLast">Rating ({{mainBreed.intelligence}}/5)</span>
+            <div class="progress">
+              <span class="progress-bar" style="width: {{mainBreed.intelligence * 20}}%"></span>
+            </div>
+          </div>
+          <div class="part-33"> 
+            <span class="textLast" style="letter-spacing: 2px;"><b>Activity</b></span>
+             <span class="textLast">Rating ({{mainBreed.activity}}/5)</span>
+            <div class="progress">
+              <span class="progress-bar" style="width: {{mainBreed.activity * 20}}%"></span>
+            </div>
+          </div>
+          <div class="part-33"> 
+            <span class="textLast" style="letter-spacing: 2px;"><b>Maintenance cost</b></span>
+            <span class="textLast">Rating ({{mainBreed.maintenanceCost}}/5)</span>
+            <div class="progress">
+              <span class="progress-bar" style="width: {{mainBreed.maintenanceCost * 20}}%"></span>
+            </div>
+          </div>
+          <div class="part-33"> 
+            <span class="textLast" style="letter-spacing: 2px;"><b>Noise</b></span>
+            <span class="textLast">Rating ({{mainBreed.noise}}/5)</span>
+            <div class="progress">
+              <span class="progress-bar" style="width: {{mainBreed.noise * 20}}%"></span>
+            </div>
+          </div>
+          <div class="part-33"> 
+            <span class="textLast" style="letter-spacing: 2px;"><b>Training</b></span>
+            <span class="textLast">Rating ({{mainBreed.training}}/5)</span>
+            <div class="progress">
+              <span class="progress-bar" style="width: {{mainBreed.training * 20}}%"></span>
+            </div>
+          </div>
+          <div class="part-33"> 
+            <span class="textLast" style="letter-spacing: 2px;"><b>Security qualities</b></span>
+            <span class="textLast">Rating ({{mainBreed.securityQualities}}/5)</span>
+            <div class="progress">
+              <span class="progress-bar" style="width: {{mainBreed.securityQualities * 20}}%"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

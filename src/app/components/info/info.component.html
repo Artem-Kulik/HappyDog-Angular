@@ -1,6 +1,91 @@
-<p>
-  info works!
-</p>
-<div class="container signin">
-  <p><span [routerLink]="['/']">Back</span></p>
+<div class="main">
+  <div *ngIf="!IsLoggedIn" class="navbar">
+    <div class="navbar-left navbar-text" style="font-size: 18px;">
+      <span class="HappyDog"><b>HAPPY DOG</b></span>
+    </div>
+    <div class="navbar-center navbar-text">
+      <span class="hover" [routerLink]="['/']">HOME</span>
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/info']">INFO</span>
+    </div>
+    <div class="navbar-right navbar-text">
+      <span class="mainButton Wm" [routerLink]="['/register']">REGISTER</span>
+      <span class="separator"></span>
+      <span class="mainButton Wm" [routerLink]="['/login']">LOGIN</span>
+    </div>
+    <hr class="hr1" />
+
+  </div>
+  <div *ngIf="IsLoggedIn" class="navbar">
+    <div class="navbar-left navbar-text" style="font-size: 18px;">
+      <span class="HappyDog"><b>HAPPY DOG</b></span>
+    </div>
+    <div class="navbar-center navbar-text">
+      <span class="hover" [routerLink]="['/']">HOME</span>
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/info']">INFO</span>
+
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/shop']">SHOP</span>
+      
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/my-dogs']">MY DOGS</span></div>
+    <div class="navbar-right navbar-text">
+      <span class="profile" [routerLink]="['/profile']">{{email}}</span>
+      <span class="mainButton Wm" (click)="LogOut()">LOG OUT</span>
+    </div>    
+    <hr class="hr1" />
+  </div>
+
+  <div class="conteiner">
+  <div class="menu">
+    <div class="manu-part">
+      <span class="menu-text" (click)="Watchdog()">Watchdog</span>
+    </div>
+    <div class="manu-part">
+      <span class="menu-text" (click)="Hunting()">Hunting</span>
+    </div>
+    <div class="manu-part">
+      <span class="menu-text" (click)="Smart()">Smart</span>
+    </div>
+    <div class="manu-part">
+      <span class="menu-text" (click)="Kind()">Kind</span>
+    </div>
+    <div class="manu-part">
+      <span class="menu-text" (click)="Expensive()">Expensive</span>
+    </div>
+  </div>
+  <div class="context">
+    <div *ngFor="let breed of breeds;" class="breed">
+      <div class="infocardContainer">
+        <div id="main">
+          <img (click)="ShowInfo(breed.id)" src="https://localhost:44388{{breed.mainPhoto}}">
+        </div>
+        <div class="textbois" >
+          <span class="mainSpan">{{breed.breed}}</span>
+          <span class="infoSpan">Country: {{breed.country}}</span>
+          <span class="infoSpan">Height: {{breed.height}}</span>
+          <span class="infoSpan">Weight: {{breed.weight}}</span>
+          <span class="infoSpan">Type: {{breed.dogType}}</span>
+         </div>
+      </div>
+    </div>
+    <!-- [routerLink]="['/breed-info/', breed.id]" -->
+  </div>
+  </div>
 </div>

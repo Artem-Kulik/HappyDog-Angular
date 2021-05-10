@@ -1,0 +1,149 @@
+<div class="main" (click)="Close()">
+  <div *ngIf="!IsLoggedIn" class="navbar">
+    <div class="navbar-left navbar-text" style="font-size: 18px;">
+      <span class="HappyDog"><b>HAPPY DOG</b></span>
+    </div>
+    <div class="navbar-center navbar-text">
+      <span class="hover" [routerLink]="['/']">HOME</span>
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/info']">INFO</span>
+    </div>
+    <div class="navbar-right navbar-text">
+      <span class="mainButton Wm" [routerLink]="['/register']">REGISTER</span>
+      <span class="separator"></span>
+      <span class="mainButton Wm" [routerLink]="['/login']">LOGIN</span>
+    </div>
+    <hr class="hr1" />
+
+  </div>
+  <div *ngIf="IsLoggedIn" class="navbar">
+    <div class="navbar-left navbar-text" style="font-size: 18px;">
+      <span class="HappyDog"><b>HAPPY DOG</b></span>
+    </div>
+    <div class="navbar-center navbar-text">
+      <span class="hover" [routerLink]="['/']">HOME</span>
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/info']">INFO</span>
+
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/shop']">SHOP</span>
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/my-dogs']">MY DOGS</span> </div>
+    <div class="navbar-right navbar-text">
+      <span class="profile" [routerLink]="['/profile']">{{email}}</span>
+      <span class="mainButton Wm" (click)="LogOut()">LOG OUT</span>
+    </div>
+    <hr class="hr1" />
+  </div>
+
+  <div class="c">
+    <div class="filters">
+      <div class="St">
+        <span class="filter">Filters:</span>
+        <span class="breedtype">Find by breeds:</span>
+        <input type="text" placeholder="Enter breed" [(ngModel)]="Fbreed" value="{{Fbreed}}" (change)="FindByName()" class="FbB">
+      </div>
+
+      <div class="Sb">
+        <span class="breedtype margin">Sort by breed type:</span>
+        <div class="select" tabindex="1" id="type" [(ngModel)]="filter.type">
+          <input class="selectopt" name="test" type="radio" id="opt1" checked>
+          <label for="opt1" class="option">All</label>
+          <input class="selectopt" name="test" type="radio" id="opt2">
+          <label for="opt2" class="option">Watchdog</label>
+          <input class="selectopt" name="test" type="radio" id="opt3">
+          <label for="opt3" class="option">Hunter</label>
+          <input class="selectopt" name="test" type="radio" id="opt4">
+          <label for="opt4" class="option">Smart</label>
+          <input class="selectopt" name="test" type="radio" id="opt5">
+          <label for="opt5" class="option">Kind</label>
+          <input class="selectopt" name="test" type="radio" id="opt6">
+          <label for="opt6" class="option">Expensive</label>
+        </div>
+
+        <div class="Price">
+          <span class="breedtype">Sort by price:</span>
+          <br />
+          <span class="fromto">from</span>
+          <input type="number" [(ngModel)]="filter.min" value="{{filter.min}}" placeholder="$ from" class="TN">
+          <span style="margin-left: 35px;" class="fromto">to</span>
+          <input type="number" placeholder="$ to" [(ngModel)]="filter.max" value="{{filter.max}}" class="TN">
+        </div>
+
+        <input type="button" value="Sort" (click)="Sort()" class="Sort">
+
+        <span class="Ih">You have {{myInfo.coins}}$</span>
+
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="saleDog" *ngFor="let dog of dogs;">
+        <div class="Sphoto" style="background-image: url(https://localhost:44388{{dog.mainPhoto}});">
+        </div>
+
+        <div class="Rinfo">
+          <span>{{dog.breed}}</span>
+          <span class="type">Type: {{dog.dogType}}</span>
+          <span class="type">Age: {{dog.age}}</span>
+          <span class="type" style="font-size: 18px;">Price: <span
+              style="color: rgba(226, 226, 226, 0.616);">{{dog.price}}</span>$</span>
+
+          <input type="button" class="Showinfo" (click)="ShowInfo(dog.id)" value="Show info">
+        </div>
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <div class="topPart">
+                <div class="gallery">
+                  <mdb-carousel (click)="CClick()" class="CI" class="carousel slide carousel-fade" [animation]="'fade'">
+                    <mdb-carousel-item class="CI" *ngFor="let photo of Sphotos">
+                      <div class="view w-100">
+                        <img class="d-block w-100" src="https://localhost:44388{{photo}}" alt="Third slide">
+                        <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+                      </div>
+                    </mdb-carousel-item>
+                  </mdb-carousel>  
+                </div>
+                <div class="Someinfo">
+                  <div class="half">
+                    <span>{{Modaldog.breed}}</span>
+                    <span class="type">Type: {{Modaldog.dogType}}</span>
+                    <span class="type">Age: {{Modaldog.age}}</span>
+                    <span class="type" style="font-size: 18px;">Price: <span
+                        style="color: rgba(226, 226, 226, 0.616);">{{Modaldog.price}}</span>$</span>
+                  </div>
+                  <div class="half2">
+                    <span class="desc">{{Modaldog.info}}</span>
+                  </div>
+                </div> 
+              </div>
+              <div class="footerB">
+                <div class="container">
+                  <a class="btn" style="color: white;" (click)="Buy(Modaldog.id)">I am ready to buy this puppy</a>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="./script.js"></script>
+</div>

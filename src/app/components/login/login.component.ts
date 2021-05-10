@@ -31,11 +31,16 @@ export class LoginComponent implements OnInit {
   Login(){
     this.userService.Login(this.prop).subscribe((res : ApiTokenResponse) => {
       if (res.isSuccessful) {
+        if(res.message != "Admin")
+        {
         localStorage.setItem("Token", res.token);   
         localStorage.setItem("Id", res.message);   
         this.userService.loginStatus.emit(true);
-        console.log('QQq');
-        this.router.navigate(['/']);            
+        this.router.navigate(['/']);     
+        }
+        else{
+          this.router.navigate(['/admin']);     
+        }       
       }
       else{
       }

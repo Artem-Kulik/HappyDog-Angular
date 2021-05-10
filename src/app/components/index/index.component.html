@@ -1,54 +1,8 @@
 <div class="main">
-    <div id="carousel" class="carousel" style="background-image: url({{mainPhoto}});">
-
-        <div *ngIf="!IsLoggedIn" class="navbar">
-            <div class="navbar-left navbar-text" style="font-size: 18px;">
-                <span class="HappyDog"><b>HAPPY DOG</b></span>
-            </div>
-            <div class="navbar-center navbar-text">
-                <span class="hover" [routerLink]="['/']">HOME</span>
-
-                <span class="separator"></span>
-                <span>|</span>
-                <span class="separator"></span>
-
-                <span class="hover" [routerLink]="['/info']">INFO</span>
-            </div>
-            <div class="navbar-right navbar-text">
-                <span class="mainButton Wm" [routerLink]="['/register']">REGISTER</span>
-                <span class="separator"></span>
-                <span class="mainButton Wm" [routerLink]="['/login']">LOGIN</span>
-            </div>
-        </div>
-        <div *ngIf="IsLoggedIn" class="navbar">
-            <div class="navbar-left navbar-text" style="font-size: 18px;">
-                <span class="HappyDog"><b>HAPPY DOG</b></span>
-            </div>
-            <div class="navbar-center navbar-text">
-                <span class="hover" [routerLink]="['/']">HOME</span>
-
-                <span class="separator"></span>
-                <span>|</span>
-                <span class="separator"></span>
-
-                <span class="hover" [routerLink]="['/info']">INFO</span>
-
-
-                <span class="separator"></span>
-                <span>|</span>
-                <span class="separator"></span>
-
-                <span class="hover" [routerLink]="['/info']">SHOP</span>
-            </div>
-            <div class="navbar-right navbar-text">
-                <span class="profile" [routerLink]="['/profile']">{{email}}</span>
-                <span class="mainButton Wm" (click)="LogOut()">LOG OUT</span>
-            </div>
-        </div>
-
+    <div class="carousel">      
         <div class="carousel-context">
-            <div (click)="Next()" class="next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="50" style="color: rgb(216, 216, 216);"
+            <!-- <div (click)="Next()" class="next">
+              <svg xmlns="http://www.w3.org/2000/svg" width="200" height="50" style="color: rgb(216, 216, 216);"
                     fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
@@ -100,7 +54,85 @@
                     <path fill-rule="evenodd"
                         d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                 </svg>
-            </div>
+            </div> -->
+            <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+                <div *ngIf="!IsLoggedIn" class="navbar">
+                    <div class="navbar-left navbar-text" style="font-size: 18px;">
+                        <span class="HappyDog"><b>HAPPY DOG</b></span>
+                    </div>
+                    <div class="navbar-center navbar-text">
+                        <span class="hover" [routerLink]="['/']">HOME</span>
+        
+                        <span class="separator"></span>
+                        <span>|</span>
+                        <span class="separator"></span>
+        
+                        <span class="hover" [routerLink]="['/info']">INFO</span>
+                    </div>
+                    <div class="navbar-right navbar-text">
+                        <span class="mainButton Wm" [routerLink]="['/register']">REGISTER</span>
+                        <span class="separator"></span>
+                        <span class="mainButton Wm" [routerLink]="['/login']">LOGIN</span>
+                    </div>
+                </div>
+                <div *ngIf="IsLoggedIn" class="navbar">
+                    <div class="navbar-left navbar-text" style="font-size: 18px;">
+                        <span class="HappyDog"><b>HAPPY DOG</b></span>
+                    </div>
+                    <div class="navbar-center navbar-text">
+                        <span class="hover" [routerLink]="['/']">HOME</span>
+        
+                        <span class="separator"></span>
+                        <span>|</span>
+                        <span class="separator"></span>
+        
+                        <span class="hover" [routerLink]="['/info']">INFO</span>
+        
+        
+                        <span class="separator"></span>
+                        <span>|</span>
+                        <span class="separator"></span>
+        
+                        <span class="hover" [routerLink]="['/shop']">SHOP</span>   
+                        
+                        <span class="separator"></span>
+                        <span>|</span>
+                        <span class="separator"></span>
+        
+                        <span class="hover" [routerLink]="['/my-dogs']">MY DOGS</span>
+                    </div>
+                    <div class="navbar-right navbar-text">
+                        <span class="profile" [routerLink]="['/profile']">{{email}}</span>
+                        <span class="mainButton Wm" (click)="LogOut()">LOG OUT</span>
+                    </div>
+                </div>
+                <mdb-carousel-item class="CI">
+                  <div class="view w-100">
+                    <img class="d-block w-100" src="https://localhost:44388/Images/SI4.jpg" alt="Third slide">
+                    <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+                  </div>
+                  <div class="carousel-caption">
+                    <div class="main-context-top" style="margin-bottom: 180px;">
+                        <span id="main-thesis" class="main-thesis">WE LOVE PETS</span>
+                        <span id="second-thesis" class="second-thesis">Lack of cunning, incessant joy in the eyes, will meet you for the hundredth time even better than the first. The one who will make your every morning truly special. It`s dogs 🖤🖤🖤</span>
+                        <span class="mainButton" [routerLink]="['/info']">LEARN BREEDS</span>
+                    </div>
+                  </div>
+                </mdb-carousel-item> 
+                <mdb-carousel-item  class="CI">
+                  <div class="view w-100">
+                    <img class="d-block w-100" src="https://localhost:44388/Images/slider-7.jpg" alt="Third slide">
+                    <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+                  </div>
+                  <div class="carousel-caption">
+                    <div class="main-context-top" style="margin-bottom: 180px;">
+                        <span id="main-thesis" class="main-thesis">CARE FOR DOGS</span>
+                        <span id="second-thesis" class="second-thesis">One of the human laws says: Take care of our younger brothers (animals). After all, giving love to someone - it will be given to us. Let`s care about our dogs and love them by all heard 🖤🖤🖤</span>
+                        <span class="mainButton" [routerLink]="['/info']">LEARN BREEDS</span>
+                    </div>
+                  </div>
+                </mdb-carousel-item> 
+              </mdb-carousel>
         </div>
     </div>
 
@@ -213,39 +245,39 @@
                     <div class="dogs-food-top">
                         <div class="col-md-4 col-sm-2 dogs-food-info">
                             <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-1.png">
-                            <h4 class="white">CARE</h4>
-                            <p class="white">We have a duty to take care of our pets, to notice poor health or various
+                            <h4 class="w">CARE</h4>
+                            <p class="w">We have a duty to take care of our pets, to notice poor health or various
                                 diseases</p>
                         </div>
                         <div class="col-md-4 col-sm-2 dogs-food-info">
                             <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-2.png">
-                            <h4 class="white">Help</h4>
-                            <p class="white">In everything we must help our pets. In no case can our dogs be beaten</p>
+                            <h4 class="w">Help</h4>
+                            <p class="w">In everything we must help our pets. In no case can our dogs be beaten</p>
                         </div>
                         <div class="col-md-4 col-sm-2 dogs-food-info">
                             <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-3.png">
-                            <h4 class="white">TRAVEL</h4>
-                            <p class="white">Our pets need constant fun walks. After all, dogs need their children
+                            <h4 class="w">TRAVEL</h4>
+                            <p class="w">Our pets need constant fun walks. After all, dogs need their children
                                 somewhere for their energy. It is best to do this without a leash</p>
                         </div>
                         <div class="col-md-4 col-sm-2 dogs-food-info marginTop">
                             <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-4.png">
-                            <h4 class="white">FRIEND-SHIP</h4>
-                            <p class="white">Being a true friend to the dog and he will protect you in case of danger,
+                            <h4 class="w">FRIEND-SHIP</h4>
+                            <p class="w">Being a true friend to the dog and he will protect you in case of danger,
                                 of course, if you have both protective breeds, but even small decorative breeds do their
                                 best to wink to protect you (as funny as it sounds)</p>
                         </div>
                         <div class="col-md-4 col-sm-3 dogs-food-info marginTop">
                             <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-5.png">
-                            <h4 class="white">DOG-HOME</h4>
-                            <p class="white">We must take the dog into the house as a real new member of the family, he
+                            <h4 class="w">DOG-HOME</h4>
+                            <p class="w">We must take the dog into the house as a real new member of the family, he
                                 must have a personal place to sleep, but the dog can sleep with you until the molting
                                 period.</p>
                         </div>
                         <div class="col-md-4 col-sm-3 dogs-food-info marginTop">
                             <img style="width: 65px; height: 65px;" src="https://localhost:44388/Images/dg-6.png">
-                            <h4 class="white">DOG-FOOD</h4>
-                            <p class="white">In order for a dog to grow up healthy and strong, we must feed it with the
+                            <h4 class="w">DOG-FOOD</h4>
+                            <p class="w">In order for a dog to grow up healthy and strong, we must feed it with the
                                 right rational grooming, adding weight, height and features of the breed.</p>
                         </div>
                         <div class="clearfix"> </div>

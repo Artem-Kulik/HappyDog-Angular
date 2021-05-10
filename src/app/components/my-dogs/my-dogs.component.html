@@ -1,0 +1,222 @@
+<div class="main">
+  <div class="navbar">
+    <div class="navbar-left navbar-text" style="font-size: 18px;">
+      <span class="HappyDog">HAPPY DOG</span>
+    </div>
+    <div class="navbar-center navbar-text">
+      <span class="hover" [routerLink]="['/']">HOME</span>
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/info']">INFO</span>
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/shop']">SHOP</span>
+
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/my-dogs']">MY DOGS</span>
+    </div>
+    <div class="navbar-right navbar-text">
+      <span class="profile" [routerLink]="['/profile']">{{myInfo.email}}</span>
+      <span class="mainButton Wm" (click)="LogOut()">LOG OUT</span>
+    </div>
+    <hr width="100%" style="margin-top:6px;" />
+  </div>
+
+  <div class="conteiner">
+    <div class="half">
+      <div class="mydogs">
+        <div class="dog" *ngFor="let dog of mydogs;" (click)="GoEdit(dog.id)">
+          <div class="gallary">
+            <mdb-carousel class="CI" class="carousel slide carousel-fade" [animation]="'fade'">
+              <mdb-carousel-item class="CI" *ngFor="let photo of dog.photos">
+                <div class="view w-100">
+                  <img class="d-block w-100" src="https://localhost:44388{{photo}}" alt="Third slide">
+                  <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+                </div>
+              </mdb-carousel-item>
+            </mdb-carousel>
+          </div>
+          <div class="info">
+            <span class="name">{{dog.name}}</span>
+            <span class="bta">{{dog.breed}}</span>
+            <span class="bta">{{dog.dogType}}</span>
+            <span class="bta">{{dog.age}}</span>
+            <span class="breeddecs">
+              <hr class="hr1" />{{dog.info}}
+              <hr class="hr1" />
+            </span>
+
+            <span class="Mydecs">{{dog.myDescription}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="half">
+      <div *ngIf="part=='edit'" class="rightpart">
+        <div class="nav">
+          <span class="hover" (click)="Edit()">EDIT</span>
+
+          <span class="separator"></span>
+          <span>|</span>
+          <span class="separator"></span>
+
+          <span class="hover" (click)="AddPhoto()">ADD PHOTO</span>
+
+          <span class="separator"></span>
+          <span>|</span>
+          <span class="separator"></span>
+
+          <span class="hover" (click)="Sale()">SALE DOG</span>
+        </div>
+        <div class="header">
+          <span><b>Edit form</b></span>
+        </div>
+
+        <div class="editform">
+          <div class="photos">
+            <mdb-carousel class="swaper" class="carousel slide carousel-fade" [animation]="'fade'">
+              <mdb-carousel-item class="swaper" *ngFor="let photo of EditDog.photos">
+                <div class="view w-100">
+                  <img class="d-block w-100" src="https://localhost:44388/{{photo}}" alt="Third slide">
+                  <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+                </div>
+              </mdb-carousel-item>
+            </mdb-carousel>
+          </div>
+          <div class="e">
+            <div class="editer" style="color: white;">
+              <label for="email"><b>Name</b></label>
+              <input type="text" placeholder="Enter Name" name="email" id="email" [(ngModel)]="EditDog.name"
+                value="{{EditDog.name}}" required>
+
+              <label for="email"><b>Breed</b></label>
+              <input type="text" placeholder="Enter Breed" name="email" id="email" [(ngModel)]="EditDog.breed" value="{{EditDog.breed}}" required>
+
+              
+              <label for="email"><b>Breed type:</b></label>
+              <div class="select" tabindex="1" id="type">
+                <input (click)="ChangeType($event)" value="Watchdog" class="selectopt" name="test" type="radio" id="opt1" checked>
+                <label for="opt1" class="option">Watchdog</label>
+                <input (click)="ChangeType($event)" value="Hunter" class="selectopt" name="test" type="radio" id="opt2">
+                <label for="opt2" class="option">Hunter</label>
+                <input (click)="ChangeType($event)" value="Smart" class="selectopt" name="test" type="radio" id="opt3">
+                <label for="opt3" class="option">Smart</label>
+                <input (click)="ChangeType($event)" value="Kind" class="selectopt" name="test" type="radio" id="opt4">
+                <label for="opt4" class="option">Kind</label>
+                <input (click)="ChangeType($event)" value="Expensive" class="selectopt" name="test" type="radio" id="opt5">
+                <label for="opt5" class="option">Expensive</label>
+              </div>
+
+              <label for="email"><b>Age</b></label>
+              <input type="text" placeholder="Enter Age" name="Age" id="Age" required [(ngModel)]="EditDog.age"
+                value="{{EditDog.age}}">
+
+              <label for="email" style="word-wrap:normal"><b>My description:</b></label>
+              <input type="text" class="Description" placeholder="Enter Description" [(ngModel)]="EditDog.myDescription"
+                value="{{EditDog.myDescription}}" name="description" id="description" required>
+
+              <div class="center">
+                <span class="mainButton Wm" style="font-size: 18px; padding: 5px 20px;" (click)="EditMain()">EDIT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="part=='add'" class="rightpart">
+        <div class="nav">
+          <span class="hover" (click)="Edit()">EDIT</span>
+
+          <span class="separator"></span>
+          <span>|</span>
+          <span class="separator"></span>
+
+          <span class="hover" (click)="AddPhoto()">ADD PHOTO</span>       
+
+          <span class="separator"></span>
+          <span>|</span>
+          <span class="separator"></span>
+
+          <span class="hover" (click)="Sale()">SALE DOG</span> 
+        </div>
+        <div class="header">
+          <span><b>Add photo form</b></span>
+        </div>
+        <div class="addPhoto">
+          <div class="editform2">
+          </div>
+          <div class="AddB">
+            <!-- <input class="photoLAdd mainButton Wm" style="background-color: transparent;  border: 2px solid white;
+            padding: 0.675rem 1.2rem;" type="file" (change)="uploadPhoto($event.target)" name="psw" id="psw" required> 
+            <span class="mainButton Wm">Add photo</span> -->
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="part=='sale'" class="rightpart">
+        <div class="nav">
+          <span class="hover" (click)="Edit()">EDIT</span>
+
+          <span class="separator"></span>
+          <span>|</span>
+          <span class="separator"></span>
+
+          <span class="hover" (click)="AddPhoto()">ADD PHOTO</span>
+
+          <span class="separator"></span>
+          <span>|</span>
+          <span class="separator"></span>
+
+          <span class="hover" (click)="Sale()">SALE DOG</span>
+        </div>
+        <div class="header">
+          <span><b>Put the dog up for sale</b></span>
+        </div>  
+        
+        <div class="saleDog" style="color: white;">
+          <label for="email"><b>Breed</b></label>
+          <input type="text" placeholder="Enter Breed" name="email" id="email" [(ngModel)]="AddDog.breed" value="{{AddDog.breed}}" required>
+
+          <label for="email"><b>Breed type:</b></label>
+          <div class="select" tabindex="1" id="type">
+            <input (click)="ChangeType($event)" value="Watchdog" class="selectopt" name="test" type="radio" id="opt1" checked>
+            <label for="opt1" class="option">Watchdog</label>
+            <input (click)="ChangeType($event)" value="Hunter" class="selectopt" name="test" type="radio" id="opt2">
+            <label for="opt2" class="option">Hunter</label>
+            <input (click)="ChangeType($event)" value="Smart" class="selectopt" name="test" type="radio" id="opt3">
+            <label for="opt3" class="option">Smart</label>
+            <input (click)="ChangeType($event)" value="Kind" class="selectopt" name="test" type="radio" id="opt4">
+            <label for="opt4" class="option">Kind</label>
+            <input (click)="ChangeType($event)" value="Expensive" class="selectopt" name="test" type="radio" id="opt5">
+            <label for="opt5" class="option">Expensive</label>
+          </div>
+
+          <label for="email"><b>Age</b></label>
+          <input type="text" placeholder="Enter Age" name="Age" id="Age" required [(ngModel)]="AddDog.age"
+            value="{{AddDog.age}}">
+
+            <label for="email"><b>Price</b></label>
+            <input type="number" placeholder="Enter Price" name="Age" id="Price" required [(ngModel)]="AddDog.price"
+              value="{{AddDog.price}}">
+
+          <label for="email" style="word-wrap:normal"><b>Info:</b></label>
+          <input type="text" class="Description" placeholder="Enter info" [(ngModel)]="AddDog.myDescription"
+            value="{{AddDog.myDescription}}" name="description" id="description" required>
+
+          <div class="center">
+            <span class="mainButton Wm" style="font-size: 18px; padding: 5px 20px;" (click)="SendRequest()">Send request</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

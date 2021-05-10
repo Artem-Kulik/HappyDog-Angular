@@ -1,27 +1,27 @@
 <div class="main">
   <div class="navbar">
     <div class="navbar-left navbar-text" style="font-size: 18px;">
-        <span class="HappyDog">HAPPY DOG</span>
+      <span class="HappyDog">HAPPY DOG</span>
     </div>
     <div class="navbar-center navbar-text">
-        <span class="hover" [routerLink]="['/']">HOME</span>
+      <span class="hover" [routerLink]="['/']">HOME</span>
 
-        <span class="separator"></span>
-        <span>|</span>
-        <span class="separator"></span>
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
 
-        <span class="hover" [routerLink]="['/info']">INFO</span>
+      <span class="hover" [routerLink]="['/info']">INFO</span>
     </div>
     <div class="navbar-right navbar-text">
-        <span class="mainButton Wm" [routerLink]="['/register']">REGISTER</span>
-        <span class="separator"></span>
-        <span class="mainButton Wm" [routerLink]="['/login']">LOGIN</span>
+      <span class="mainButton Wm" [routerLink]="['/register']">REGISTER</span>
+      <span class="separator"></span>
+      <span class="mainButton Wm" [routerLink]="['/login']">LOGIN</span>
     </div>
   </div>
 
   <div class="register-form">
     <div class="inner-form">
-      <div class="container" style="color: white;">
+       <div class="container" style="color: white;">
         <h1>Login</h1>
         <hr>      
         <label for="email"><b>Email</b></label>
@@ -31,11 +31,49 @@
         <input [(ngModel)]="prop.password" type="password" placeholder="Enter Password" name="psw" id="psw" required>
       
         <button type="submit" (click)="Login()" class="registerbtn">Login</button>
-      </div>
+      </div> 
+      <!-- <div class="modal-dialog form-dark" role="document">
+        <mdb-card style="background-color: rgba(0, 0, 0, 0.144);" class="modal-content">
+          <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+            <div class="modal-header text-center pb-4">
+              <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
+                <strong>SIGN</strong>
+                <a class="green-text font-weight-bold">
+                  <strong> UP</strong>
+                </a>
+              </h3>
+            </div>
+            <div class="modal-body">
+              <div class="md-form mb-5">
+                <input type="email" id="Form-email5" class="form-control white-text" mdbInput>
+                <label for="Form-email5">Your email</label>
+              </div>
+              <div class="md-form pb-3">
+                <input type="password" id="Form-pass5" class="form-control white-text" mdbInput>
+                <label for="Form-pass5">Your password</label>
+
+              </div>
+              <div class="row d-flex align-items-center mb-4">
+                <div class="text-center mb-3 col-md-12">
+                  <button type="button" mdbBtn color="success" class="z-depth-1 waves-light" mdbWavesEffect>Sign up
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="font-small white-text d-flex justify-content-end">Have an account?
+                    <a href="#" class="green-text ml-1 font-weight-bold"> Log in</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mdb-card>
+      </div> -->
     </div>
   </div>
 
   <div class="bottom">
   </div>
- 
+
 </div>

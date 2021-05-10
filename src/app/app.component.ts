@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'season-looks-angular';  
+  title = 'happy-dog-angular';  
   ngOnInit() {
     localStorage.setItem("num", "1")
   }

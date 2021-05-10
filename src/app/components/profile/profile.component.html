@@ -12,12 +12,17 @@
 
       <span class="hover" [routerLink]="['/info']">INFO</span>
 
+      <span class="separator"></span>
+      <span>|</span>
+      <span class="separator"></span>
+
+      <span class="hover" [routerLink]="['/shop']">SHOP</span>
 
       <span class="separator"></span>
       <span>|</span>
       <span class="separator"></span>
 
-      <span class="hover" [routerLink]="['/info']">SHOP</span>
+      <span class="hover" [routerLink]="['/my-dogs']">MY DOGS</span>
     </div>
     <div class="navbar-right navbar-text">
       <span class="profile" [routerLink]="['/profile']">{{myInfo.email}}</span>
@@ -33,14 +38,14 @@
           </div>
         </div>
         <div class="infoPart">
-          <input type="text" class="textInfo" value="{{myInfo.name}}">
-          <input type="text" class="textInfo" value="{{myInfo.email}}">
-          <input type="text" class="textInfo" value="{{myInfo.phoneNumber}}">
-          <input type="text" class="textInfo" value="{{myInfo.city}}">
+          <input type="text" placeholder="User name" class="textInfo" [(ngModel)]="myInfo.name" value="{{myInfo.name}}">
+          <input type="email" placeholder="Email" class="textInfo" [(ngModel)]="myInfo.email" value="{{myInfo.email}}">
+          <input type="text" placeholder="Phone number" class="textInfo" [(ngModel)]="myInfo.phoneNumber" value="{{myInfo.phoneNumber}}">
+          <input type="text" placeholder="City" class="textInfo" [(ngModel)]="myInfo.city" value="{{myInfo.city}}">
 
           <span class="BTB">Your balance: <span class="coin">{{myInfo.coins}} $</span></span>
 
-          <span class="mainButton Wm" style="margin-top: 15px;">Edit</span>           
+          <span class="mainButton Wm" (click)="Edit()" style="margin-top: 15px;">Edit</span>           
         </div>
       </div>
     </div>

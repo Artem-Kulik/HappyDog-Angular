@@ -12,6 +12,21 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { InfoComponent } from './components/info/info.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { BreedInfoComponent } from './components/breed-info/breed-info.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { MyDogsComponent } from './components/my-dogs/my-dogs.component';
+import { CommonModule } from '@angular/common';
+import { AdminComponent } from './components/admin/admin.component';
+
+const customNotifierOption: NotifierOptions = {
+  position:  {horizontal: {position: 'right'}, 
+              vertical: {position: 'top'} }
+}
+
 
 @NgModule({
   declarations: [
@@ -20,17 +35,27 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     RegisterComponent,
     InfoComponent,
-    ProfileComponent
+    ProfileComponent,
+    BreedInfoComponent,
+    ShopComponent,
+    MyDogsComponent,
+    AdminComponent
   ],
   imports: [
+    MDBBootstrapModule.forRoot(),
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    NotifierModule.withConfig(customNotifierOption)
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+    {provide: HTTP_INTERCEPTORS, 
+      useClass: TokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

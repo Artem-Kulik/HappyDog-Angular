@@ -4,6 +4,8 @@ import { RegisterDto } from '../models/registerDto';
 import { Observable } from 'rxjs';
 import { ApiCollectionResponse, ApiResponse, ApiSingleResponse, ApiTokenResponse } from '../models/apiResponse';
 import { LoginDto } from '../models/loginDto';
+import { userInfoDto } from '../models/userInfoDto';
+import { SaleDto } from '../models/SaleDto';
 
 @Injectable({
   providedIn: 'root'
@@ -24,17 +26,25 @@ export class UserService {
 
   UploadPhoto(id: string, file: FormData):  Observable<ApiResponse> {
     this.headers.append('Content-Type', 'multipart/form-data');
-    return this.http.post<ApiResponse>('https://localhost:44388/api/image/UploadThingImage/'+id, file, {headers: this.headers})
+    return this.http.post<ApiResponse>('https://localhost:44388/api/image/AddMyDogImage/'+id, file, {headers: this.headers})
   }
 
   LogOut(){
     localStorage.removeItem("Token");
     localStorage.removeItem("Id");
     this.loginStatus.emit(false);
-    console.log('logout');
   }
 
   getUserInfo(id:string): Observable<ApiSingleResponse> {
     return this.http.get<ApiSingleResponse>('https://localhost:44388/api/user/'+id);
+  }  
+
+  editUserInfo(x:userInfoDto): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>('https://localhost:44388/api/user/', x);
+  }  
+
+  sendRequest(x: SaleDto): Observable<ApiResponse> {
+    console.log(x);
+    return this.http.post<ApiResponse>('https://localhost:44388/api/user/sendRequest', x);
   }  
 }
