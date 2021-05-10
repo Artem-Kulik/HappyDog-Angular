@@ -102,17 +102,19 @@ export class ProfileComponent implements OnInit {
       this.res.res = false;
       this.notifier.notify('error', 'Wrong answer - ' + this.prop.prise + "$");
       this.breedGameService.AnswerRes(this.res).subscribe((res: ApiResponse) => {
+        this.ngOnInit();
       });
     }
     else {
       this.res.res = true;
       this.notifier.notify('success', 'Right answer + ' + this.prop.prise + "$");   
       this.breedGameService.AnswerRes(this.res).subscribe((res: ApiResponse) => {
+            this.ngOnInit();
+     this.myAnswer = "Select answer";
+    this.getUserInfo();
       });
     }
-    this.ngOnInit();
-    this.myAnswer = "Select answer";
-    this.getUserInfo();
+
   }
   LogOut() {
     this.userService.LogOut();

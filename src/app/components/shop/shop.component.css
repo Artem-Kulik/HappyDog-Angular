@@ -302,16 +302,16 @@ input:checked + label:before {
   margin-left: 5%;
   margin-top: 2.5%;
   text-align: center;
-  padding-top: 35px;
+  padding-top: 60px;
 
-  font-size: 28px;
+  font-size: 22px;
 color: rgb(236, 236, 236);
 font-family: 'Oswald', sans-serif;
 letter-spacing: 3px;
 }
 
 .type{
-  font-size: 24px;
+  font-size: 16px;
   margin-top: 20px;
 display: block;
 }
@@ -319,7 +319,7 @@ display: block;
 .Showinfo{
   margin-top: 35px;
   background-color: transparent;
-  font-size: 20px;
+  font-size: 16px;
   padding: 3px 20px;
   background-color: rgba(0, 0, 0, 0.25);
   letter-spacing: 3px;

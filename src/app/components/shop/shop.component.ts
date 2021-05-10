@@ -146,6 +146,10 @@ export class ShopComponent implements OnInit {
     });
   }
 
+  ChangeType(e: any) {
+    this.filter.type = e.target.value;
+  }
+
   b: BuyDto = {
     id: '',
     idD: 0,
