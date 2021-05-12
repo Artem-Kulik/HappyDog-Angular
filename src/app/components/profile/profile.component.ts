@@ -46,6 +46,7 @@ export class ProfileComponent implements OnInit {
     id: '',
     res: false
   };
+  formData: FormData = new FormData();
 
   myAnswer: string = 'Select answer';
 
@@ -119,6 +120,20 @@ export class ProfileComponent implements OnInit {
   LogOut() {
     this.userService.LogOut();
     this.router.navigate(['/']);
+  }
+
+  UploadMyPhoto(e: any) {
+    if (e.target != null) {
+      if (e.target.files && e.target.files.item(0)) {
+        this.formData.append('file', e.target.files.item(0) as File);
+        this.userService.AddMyPhoto(this.myInfo.id, this.formData).subscribe((res: ApiResponse) => {
+          if (res.isSuccessful) {
+            this.formData = new FormData();
+            this.getUserInfo();
+          }
+        });
+      }
+    }
   }
 
   ChangeF() {

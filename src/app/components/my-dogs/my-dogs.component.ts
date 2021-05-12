@@ -6,6 +6,7 @@ import { ApiResponse, ApiSingleResponse } from 'src/app/models/apiResponse';
 import { Result } from 'src/app/models/result';
 import { SaleDto } from 'src/app/models/SaleDto';
 import { userInfoDto } from 'src/app/models/userInfoDto';
+import { AdminService } from 'src/app/services/admin.service';
 import { ShopService } from 'src/app/services/shop.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -18,6 +19,7 @@ import { UserService } from 'src/app/services/user.service';
 export class MyDogsComponent implements OnInit {
   constructor(private userService: UserService,
     private shopService: ShopService,
+    private adminService: AdminService,
     private router: Router,
     private spinner: NgxSpinnerService,
     private notifier: NotifierService) {
@@ -74,7 +76,7 @@ export class MyDogsComponent implements OnInit {
     // }, 1000);
   }
 
-  ChangeType(e:any){
+  ChangeType(e: any) {
     console.log(e.target.value);
     this.AddDog.dogType = e.target.value;
   }
@@ -116,17 +118,27 @@ export class MyDogsComponent implements OnInit {
   }
 
   uploadPhoto(e: any) {
-    if (e.target!= null) {
+    if (e.target != null) {
       if (e.target.files && e.target.files.item(0)) {
         this.formData.append('file', e.target.files.item(0) as File);
         console.log(e.target.files);
         this.imgSrc = URL.createObjectURL(e.target.files[0]);
       }
-      // this.userService.UploadPhoto(this.EditDog.id.toString(), this.formData).subscribe((res: ApiResponse) => {
-      //   if (res.isSuccessful) {
+    }
+  }
 
-      //   }
-      // });
+  idSaleP: string = '';
+  UploadSalePhoto(e: any) {
+    if (e.target != null) {
+      if (e.target.files && e.target.files.item(0)) {
+        this.formData.append('file', e.target.files.item(0) as File);
+        this.adminService.UploadSalePhoto(0, this.formData).subscribe((res: ApiResponse) => {
+          if (res.isSuccessful) {
+            this.idSaleP = res.message;
+            this.formData = new FormData();
+          }
+        });
+      }
     }
   }
 
@@ -139,6 +151,7 @@ export class MyDogsComponent implements OnInit {
   }
 
   SendRequest() {
+    this.AddDog.id = parseInt(this.idSaleP);
     this.userService.sendRequest(this.AddDog).subscribe((res: ApiResponse) => {
       if (res.isSuccessful) {
         this.AddDog = new SaleDto();
@@ -155,11 +168,15 @@ export class MyDogsComponent implements OnInit {
   Sale() {
     this.part = 'sale';
   }
-  savePhoto(){
+  savePhoto() {
     this.userService.UploadPhoto(this.EditDog.id, this.formData).subscribe((res: ApiResponse) => {
-        if (res.isSuccessful) {
-          this.notifier.notify('success', 'Dog photo was successfully added!');
-        }
-      });
+      if (res.isSuccessful) {
+        this.notifier.notify('success', 'Dog photo was successfully added!');
+        this.imgSrc = "";
+        this.formData = new FormData();
+        this.getMyDogs();
+        this.part = 'edit';
+      }
+    });
   }
 }

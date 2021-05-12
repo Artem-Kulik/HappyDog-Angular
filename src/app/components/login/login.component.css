@@ -1,7 +1,7 @@
 .container {
   height: 799px;
 }
-input[type=text], input[type=password], input[type=number], input[type=file] {
+input[type=text], input[type=password], input[type=number], input[type=file],input[type=email]  {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;

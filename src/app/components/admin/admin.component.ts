@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CollapseModule } from 'angular-bootstrap-md';
+import { NotifierService } from 'angular-notifier';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiCollectionResponse, ApiResponse, ApiSingleResponse } from 'src/app/models/apiResponse';
 import { BreedDto } from 'src/app/models/breedDto';
@@ -25,6 +26,7 @@ export class AdminComponent implements OnInit {
     private shopService: ShopService,
     private adminService: AdminService,
     private spinner: NgxSpinnerService,
+    private notifier: NotifierService,
     private breedService: BreedService,
     private router: Router) { }
 
@@ -86,6 +88,44 @@ export class AdminComponent implements OnInit {
     this.getRequests();
     this.getUsers();
     this.getSaleDogs();
+  }
+
+  imgSrc: string = '';
+  UploadBigPhoto(e: any) {
+    if (e.target != null) {
+      if (e.target.files && e.target.files.item(0)) {
+        this.formData.append('file', e.target.files.item(0) as File);
+        this.adminService.UploadBigPhoto(this.mainBreed.id, this.formData).subscribe((res: ApiResponse) => {
+          if (res.isSuccessful) {            
+            this.formData = new FormData();
+          }
+        });
+      }
+    }
+  }
+  UploadMainPhoto(e: any) {
+    if (e.target != null) {
+      if (e.target.files && e.target.files.item(0)) {
+        this.formData.append('file', e.target.files.item(0) as File);
+        this.adminService.UploadMainPhoto(this.mainBreed.id, this.formData).subscribe((res: ApiResponse) => {
+          if (res.isSuccessful) {
+            this.formData = new FormData();
+          }
+        });
+      }
+    }
+  }
+  UploadSaleMainPhoto(e: any) {
+    if (e.target != null) {
+      if (e.target.files && e.target.files.item(0)) {
+        this.formData.append('file', e.target.files.item(0) as File);
+        this.adminService.UploadSaleMainPhoto(this.EditAddSaleDog.id, this.formData).subscribe((res: ApiResponse) => {
+          if (res.isSuccessful) {
+            this.formData = new FormData();
+          }
+        });
+      }
+    }
   }
 
   getUsers() {
@@ -186,6 +226,9 @@ export class AdminComponent implements OnInit {
   AddDFS() {
     this.shopService.addSaleDog(this.EditAddSaleDog).subscribe((res: ApiResponse) => {
       if (res.isSuccessful) {
+        this.EditAddSaleDog = new SaleDto();
+        this.part = "sales"
+        this.getSaleDogs();
       }
     });
   }
@@ -202,18 +245,6 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  uploadPhoto(files: FileList) {
-    // if(files.item && files.item(0))
-    // {
-    //   this.formData.append('file', files.item(0));
-    // }
-    // this.userService.UploadPhoto(this.id, this.formData).subscribe((res: ApiResponse)=>{
-    //   if(res.isSuccessful){
-
-    //   }
-    // })
-  }
-
   res: Result = {
     res: false,
     id: ""
@@ -222,7 +253,11 @@ export class AdminComponent implements OnInit {
     this.res.res = true;
     this.res.id = id.toString();
     this.adminService.sendRequest(this.res).subscribe((res: ApiResponse) => {
-      if (res.isSuccessful) {
+      if (res.isSuccessful) {        
+        setTimeout(() => {
+          this.spinner.hide()
+        }, 600);
+        this.notifier.notify('success', 'A new dog was put up for sale');
         this.getRequests();
       }
     });
@@ -232,6 +267,10 @@ export class AdminComponent implements OnInit {
     this.res.id = id.toString();
     this.adminService.sendRequest(this.res).subscribe((res: ApiResponse) => {
       if (res.isSuccessful) {
+        setTimeout(() => {
+          this.spinner.hide()
+        }, 600);
+        this.notifier.notify('success', 'The proposal was rejected');
         this.getRequests();
       }
     });

@@ -213,6 +213,10 @@
           <input type="text" class="Description" placeholder="Enter info" [(ngModel)]="AddDog.info"
             value="{{AddDog.myDescription}}" name="description" id="description" required>
 
+            <label>Chose photo: </label>
+        <input class="photoLAdd mainButton Wm" style="background-color: transparent;  border: 2px solid white;
+        padding: 0.675rem 1.2rem;" type="file" (change)="UploadSalePhoto($event)" name="psw" id="psw"> 
+
           <div class="center">
             <span class="mainButton Wm" style="font-size: 18px; padding: 5px 20px;" (click)="SendRequest()">Send request</span>
           </div>

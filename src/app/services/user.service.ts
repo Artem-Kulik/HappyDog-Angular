@@ -29,6 +29,11 @@ export class UserService {
     return this.http.post<ApiResponse>('https://localhost:44388/api/image/AddMyDogImage/'+id, file, {headers: this.headers})
   }
 
+  AddMyPhoto(id: string, file: FormData):  Observable<ApiResponse> {
+    this.headers.append('Content-Type', 'multipart/form-data');
+    return this.http.post<ApiResponse>('https://localhost:44388/api/image/AddMyPhoto/'+id, file, {headers: this.headers})
+  }
+
   LogOut(){
     localStorage.removeItem("Token");
     localStorage.removeItem("Id");

@@ -35,7 +35,7 @@
     <li (click)="Requests()"><a><i class="material-icons pink-item">add_shopping_cart</i>Requests for sale</a></li>
   </ul>
   <main>
-<section *ngIf="part=='dashboard'" class="content">
+    <section *ngIf="part=='dashboard'" class="content">
       <div class="page-announce valign-wrapper"><a data-activates="slide-out"
           class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
         <h1 class="page-announce-text valign">// Dashboard </h1>
@@ -51,8 +51,8 @@
               <i class="material-icons pink-item myIco" style="font-size: 80px;color: #0000004f !important;">pets</i>
             </div>
             <div class="moreinfo" (click)="Breeds()">
-              <a  class="small-box-footer " class="animsition-link"
-                style="color: rgba(255, 255, 255, 0.8);">More info <i class="fa fa-arrow-circle-right"></i></a>
+              <a class="small-box-footer " class="animsition-link" style="color: rgba(255, 255, 255, 0.8);">More info <i
+                  class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
         </div>
@@ -67,8 +67,8 @@
                 style="font-size: 80px;color: #0000004f !important;">monetization_on</i>
             </div>
             <div class="moreinfo" (click)="Sales()">
-              <a class="small-box-footer " class="animsition-link"
-                style="color: rgba(255, 255, 255, 0.8);">More info <i class="fa fa-arrow-circle-right"></i></a>
+              <a class="small-box-footer " class="animsition-link" style="color: rgba(255, 255, 255, 0.8);">More info <i
+                  class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
         </div>
@@ -83,8 +83,8 @@
                 style="font-size: 80px;color: #0000004f !important;">contact_mail</i>
             </div>
             <div class="moreinfo" (click)="Users()">
-              <a class="small-box-footer " class="animsition-link"
-                style="color: rgba(255, 255, 255, 0.8);">More info <i class="fa fa-arrow-circle-right"></i></a>
+              <a class="small-box-footer " class="animsition-link" style="color: rgba(255, 255, 255, 0.8);">More info <i
+                  class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
         </div>
@@ -99,8 +99,8 @@
                 style="font-size: 80px;color: #0000004f !important;">add_shopping_cart</i>
             </div>
             <div class="moreinfo" (click)="Requests()">
-              <a class="small-box-footer " class="animsition-link"
-                style="color: rgba(255, 255, 255, 0.8);">More info <i class="fa fa-arrow-circle-right"></i></a>
+              <a class="small-box-footer " class="animsition-link" style="color: rgba(255, 255, 255, 0.8);">More info <i
+                  class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
         </div>
@@ -109,14 +109,18 @@
             <h3>Quick Links</h3>
             <div class="row">
               <div class="col l3 s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Mod Handbook"><a
-                  class="waves-effect waves-light btn-large" (click)="Breeds()"><span class="href">All breeds</span></a></div>
+                  class="waves-effect waves-light btn-large" (click)="Breeds()"><span class="href">All breeds</span></a>
+              </div>
               <div class="col l3 s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Staff Applications">
-                <a class="waves-effect waves-light btn-large"  (click)="Sales()"><span class="href">List of dogs for sale</span></a>
+                <a class="waves-effect waves-light btn-large" (click)="Sales()"><span class="href">List of dogs for
+                    sale</span></a>
               </div>
               <div class="col l3 s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Name Guidelines"><a
-                  class="waves-effect waves-light btn-large" (click)="Users()"><span class="href">Registered users</span></a></div>
+                  class="waves-effect waves-light btn-large" (click)="Users()"><span class="href">Registered
+                    users</span></a></div>
               <div class="col l3 s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Issue Tracker"><a
-                  class="waves-effect waves-light btn-large" (click)="Requests()"><span class="href">Requests for sale</span></a></div>
+                  class="waves-effect waves-light btn-large" (click)="Requests()"><span class="href">Requests for
+                    sale</span></a></div>
             </div>
           </div>
 
@@ -143,9 +147,9 @@
           </div>
         </div>
       </div>
-</section>
+    </section>
 
-<section *ngIf="part=='breeds'" class="content">
+    <section *ngIf="part=='breeds'" class="content">
       <div class="page-announce valign-wrapper"><a data-activates="slide-out"
           class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
         <h1 class="page-announce-text valign">// Breeds </h1>
@@ -187,8 +191,8 @@
           </tbody>
         </table>
       </div>
-</section>
-<section *ngIf="part == 'edit'" class="content">
+    </section>
+    <section *ngIf="part == 'edit'" class="content">
       <div class="page-announce valign-wrapper"><a data-activates="slide-out"
           class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
         <h1 class="page-announce-text valign">// Breeds / {{mainBreed.breed}} / Edit</h1>
@@ -216,7 +220,8 @@
           <label>Breed type:</label>
           <tr>
             <div class="select" tabindex="1" id="type">
-              <input (click)="ChangeType($event)" value="Watchdog" class="selectopt" name="test" type="radio" id="opt1" checked>
+              <input (click)="ChangeType($event)" value="Watchdog" class="selectopt" name="test" type="radio" id="opt1"
+                checked>
               <label for="opt1" class="option">Watchdog</label>
               <input (click)="ChangeType($event)" value="Hunter" class="selectopt" name="test" type="radio" id="opt2">
               <label for="opt2" class="option">Hunter</label>
@@ -224,285 +229,280 @@
               <label for="opt3" class="option">Smart</label>
               <input (click)="ChangeType($event)" value="Kind" class="selectopt" name="test" type="radio" id="opt4">
               <label for="opt4" class="option">Kind</label>
-              <input (click)="ChangeType($event)" value="Expensive" class="selectopt" name="test" type="radio" id="opt5">
+              <input (click)="ChangeType($event)" value="Expensive" class="selectopt" name="test" type="radio"
+                id="opt5">
+              <label for="opt5" class="option">Expensive</label>
+            </div>
+          </tr>
+        </div>
+
+        <tr>
+          <td class="f9"><label style="margin:0;">Aggressiveness:</label><input type="number" max="5" min="1"
+              name="usrname" [(ngModel)]="mainBreed.aggressiveness" value="{{mainBreed.aggressiveness}}" /></td>
+          <td class="f9"><label style="margin:0;">Activity:</label><input type="number" max="5" min="1" name="usrname"
+              [(ngModel)]="mainBreed.activity" value="{{mainBreed.activity}}" /></td>
+          <td class="f9"><label style="margin:0;">Health:</label><input type="number" max="5" min="1" name="usrname"
+              [(ngModel)]="mainBreed.health" value="{{mainBreed.health}}" /></td>
+        </tr>
+        <tr>
+          <td class="f9"><label style="margin:0;">Intelligence:</label><input type="number" max="5" min="1"
+              name="usrname" [(ngModel)]="mainBreed.intelligence" value="{{mainBreed.intelligence}}" /></td>
+          <td class="f9"><label style="margin:0;">Training:</label><input type="number" max="5" min="1" name="usrname"
+              [(ngModel)]="mainBreed.training" value="{{mainBreed.training}}" /></td>
+          <td class="f9"><label style="margin:0;">Maintenance cost:</label><input type="number" max="5" min="1"
+              name="usrname" [(ngModel)]="mainBreed.maintenanceCost" value="{{mainBreed.maintenanceCost}}" /></td>
+        </tr>
+        <tr>
+          <td class="f9"><label style="margin:0;">Molting:</label><input type="number" max="5" min="1" name="usrname"
+              [(ngModel)]="mainBreed.molting" value="{{mainBreed.molting}}" /></td>
+          <td class="f9"><label style="margin:0;">Security qualities:</label><input type="number" max="5" min="1"
+              name="usrname" [(ngModel)]="mainBreed.securityQualities" value="{{mainBreed.securityQualities}}" /></td>
+          <td class="f9"><label style="margin:0;">Noise:</label><input type="number" max="5" min="1" name="usrname"
+              [(ngModel)]="mainBreed.noise" value="{{mainBreed.noise}}" /></td>
+        </tr>
+
+        <div class="desc">
+          <label>Short description: </label>
+          <input class="inp" type="text" name="usrname" [(ngModel)]="mainBreed.mainDescription"
+            value="{{mainBreed.mainDescription}}" />
+
+          <label style="margin-top: 20px;">Main description: </label>
+          <input class="inp" type="text" name="usrname" [(ngModel)]="mainBreed.bigDescription"
+            value="{{mainBreed.bigDescription}}" />
+
+
+          <label>Chose main photo: </label>
+          <input class="photoLAdd mainButton Wm" style="background-color: transparent;  border: 2px solid white;
+            padding: 0.675rem 1.2rem;" type="file" (change)="UploadMainPhoto($event)" name="psw" id="psw">
+
+          <label>Chose big photo: </label>
+          <input class="photoLAdd mainButton Wm" style="background-color: transparent;  border: 2px solid white;
+        padding: 0.675rem 1.2rem;" type="file" (change)="UploadBigPhoto($event)" name="psw" id="psw">
+
+          <!-- <input class="photoLAdd" type="file" (change)="uploadPhoto($event.target.files)" name="psw" id="psw" required> -->
+
+          <span class="mainButton" (click)="EditBreed()">Edit breed</span>
+        </div>
+      </div>
+    </section>
+    <section *ngIf="part == 'add'" class="content">
+      <div class="page-announce valign-wrapper"><a data-activates="slide-out"
+          class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
+        <h1 class="page-announce-text valign">// Breeds / Add </h1>
+      </div>
+      <div class="container my-scroll">
+        <tr>
+          <td><label>Breed:</label><input type="text" name="usrname" [(ngModel)]="mainBreed.breed"
+              value="{{mainBreed.breed}}" /></td>
+          <td class="f10"><label>Country:</label><input type="text" name="usrname" [(ngModel)]="mainBreed.country"
+              value="{{mainBreed.country}}" /></td>
+          <td class="f10"><label>Life expectancy:</label><input type="text" name="usrname"
+              [(ngModel)]="mainBreed.lifeExpectancy" value="{{mainBreed.lifeExpectancy}}" /></td>
+
+        </tr>
+        <tr>
+          <td><label>Height:</label><input type="text" name="usrname" [(ngModel)]="mainBreed.height"
+              value="{{mainBreed.height}}" /></td>
+          <td class="f10"><label>Widht:</label><input type="text" name="usrname" [(ngModel)]="mainBreed.weight"
+              value="{{mainBreed.weight}}" /></td>
+          <td class="f10"><label>Price:</label><input type="text" name="usrname" [(ngModel)]="mainBreed.price"
+              value="{{mainBreed.price}}" /></td>
+        </tr>
+
+        <div class="left">
+          <label>Breed type:</label>
+          <tr>
+            <div class="select" tabindex="1" id="type">
+              <input (click)="ChangeType($event)" value="Watchdog" class="selectopt" name="test" type="radio" id="opt1"
+                checked>
+              <label for="opt1" class="option">Watchdog</label>
+              <input (click)="ChangeType($event)" value="Hunter" class="selectopt" name="test" type="radio" id="opt2">
+              <label for="opt2" class="option">Hunter</label>
+              <input (click)="ChangeType($event)" value="Smart" class="selectopt" name="test" type="radio" id="opt3">
+              <label for="opt3" class="option">Smart</label>
+              <input (click)="ChangeType($event)" value="Kind" class="selectopt" name="test" type="radio" id="opt4">
+              <label for="opt4" class="option">Kind</label>
+              <input (click)="ChangeType($event)" value="Expensive" class="selectopt" name="test" type="radio"
+                id="opt5">
+              <label for="opt5" class="option">Expensive</label>
+            </div>
+          </tr>
+        </div>
+
+        <tr>
+          <td class="f9"><label style="margin:0;">Aggressiveness:</label><input type="number" max="5" min="1"
+              name="usrname" [(ngModel)]="mainBreed.aggressiveness" value="{{mainBreed.aggressiveness}}" /></td>
+          <td class="f9"><label style="margin:0;">Activity:</label><input type="number" max="5" min="1" name="usrname"
+              [(ngModel)]="mainBreed.activity" value="{{mainBreed.activity}}" /></td>
+          <td class="f9"><label style="margin:0;">Health:</label><input type="number" max="5" min="1" name="usrname"
+              [(ngModel)]="mainBreed.health" value="{{mainBreed.health}}" /></td>
+        </tr>
+        <tr>
+          <td class="f9"><label style="margin:0;">Intelligence:</label><input type="number" max="5" min="1"
+              name="usrname" [(ngModel)]="mainBreed.intelligence" value="{{mainBreed.intelligence}}" /></td>
+          <td class="f9"><label style="margin:0;">Training:</label><input type="number" max="5" min="1" name="usrname"
+              [(ngModel)]="mainBreed.training" value="{{mainBreed.training}}" /></td>
+          <td class="f9"><label style="margin:0;">Maintenance cost:</label><input type="number" max="5" min="1"
+              name="usrname" [(ngModel)]="mainBreed.maintenanceCost" value="{{mainBreed.maintenanceCost}}" /></td>
+        </tr>
+        <tr>
+          <td class="f9"><label style="margin:0;">Molting:</label><input type="number" max="5" min="1" name="usrname"
+              [(ngModel)]="mainBreed.molting" value="{{mainBreed.molting}}" /></td>
+          <td class="f9"><label style="margin:0;">Security qualities:</label><input type="number" max="5" min="1"
+              name="usrname" [(ngModel)]="mainBreed.securityQualities" value="{{mainBreed.securityQualities}}" /></td>
+          <td class="f9"><label style="margin:0;">Noise:</label><input type="number" max="5" min="1" name="usrname"
+              [(ngModel)]="mainBreed.noise" value="{{mainBreed.noise}}" /></td>
+        </tr>
+
+        <div class="desc">
+          <label>Short description: </label>
+          <input class="inp" type="text" name="usrname" [(ngModel)]="mainBreed.mainDescription"
+            value="{{mainBreed.mainDescription}}" />
+
+          <label style="margin-top: 20px;">Main description: </label>
+          <input class="inp" type="text" name="usrname" [(ngModel)]="mainBreed.bigDescription"
+            value="{{mainBreed.bigDescription}}" />
+
+          <span class="mainButton" (click)="AddBreed()">Add breed</span>
+        </div>
+      </div>
+    </section>
+
+    <section *ngIf="part == 'sales'" class="content">
+      <div class="page-announce valign-wrapper"><a data-activates="slide-out"
+          class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
+        <h1 class="page-announce-text valign">// Dogs for sale </h1>
+      </div>
+      <div id="posttable" class="container my-scroll" style="width: 90%;">
+        <table class="responsive-table striped hover centered" id="names-table">
+          <thead>
+            <tr>
+              <th>Breed:</th>
+              <th>Breed type:</th>
+              <th>Age:</th>
+              <th>Info:</th>
+              <th>Price:</th>
+              <th><button class="btn bg-green" (click)="AddSaleDog()">Add dog for sale</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sale of sales;">
+              <td><a>{{sale.breed}}</a></td>
+              <td><a>{{sale.dogType}}</a></td>
+              <td><a>{{sale.age}}</a></td>
+              <td class="infoBig"><a>{{sale.info}}</a></td>
+              <td class="price"><a>{{sale.price}}</a></td>
+              <td class="centr">
+                <div class="btn-toolbar">
+                  <a (click)="EditSaleDog(sale.id)">
+                    <button class="btn bg-aqua" type="submit">
+                      <i class="material-icons">edit</i>
+                    </button>
+                  </a>
+                  <a (click)="DeleteSaleDog(sale.id)">
+                    <button class="btn bg-red" type="submit">
+                      <i class="material-icons">delete</i>
+                    </button>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section *ngIf="part == 'editsaledog'" class="content">
+      <div class="page-announce valign-wrapper"><a data-activates="slide-out"
+          class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
+        <h1 class="page-announce-text valign">// Dog for sale / Edit</h1>
+      </div>
+      <div class="container">
+        <tr>
+          <td><label>Breed:</label><input type="text" name="usrname" [(ngModel)]="EditAddSaleDog.breed"
+              value="{{EditAddSaleDog.breed}}" /></td>
+          <td class="f10"><label>Age:</label><input type="text" name="usrname" [(ngModel)]="EditAddSaleDog.age"
+              value="{{EditAddSaleDog.age}}" /></td>
+          <td class="f10"><label>Price:</label><input type="number" name="usrname" [(ngModel)]="EditAddSaleDog.price"
+              value="{{EditAddSaleDog.price}}" /></td>
+        </tr>
+        <div class="left">
+          <label>Breed type:</label>
+          <tr>
+            <div class="select" tabindex="1" id="type">
+              <input (click)="ChangeSaleType($event)" value="Watchdog" class="selectopt" name="test" type="radio"
+                id="opt1" checked>
+              <label for="opt1" class="option">Watchdog</label>
+              <input (click)="ChangeSaleType($event)" value="Hunter" class="selectopt" name="test" type="radio"
+                id="opt2">
+              <label for="opt2" class="option">Hunter</label>
+              <input (click)="ChangeSaleType($event)" value="Smart" class="selectopt" name="test" type="radio"
+                id="opt3">
+              <label for="opt3" class="option">Smart</label>
+              <input (click)="ChangeSaleType($event)" value="Kind" class="selectopt" name="test" type="radio" id="opt4">
+              <label for="opt4" class="option">Kind</label>
+              <input (click)="ChangeSaleType($event)" value="Expensive" class="selectopt" name="test" type="radio"
+                id="opt5">
+              <label for="opt5" class="option">Expensive</label>
+            </div>
+          </tr>
+        </div>
+        <div class="desc" style="padding-top: 125px;">
+          <label>Info: </label>
+          <input class="inp" type="text" name="usrname" [(ngModel)]="EditAddSaleDog.info"
+            value="{{EditAddSaleDog.info}}" />
+
+          <label>Chose photo photo: </label>
+          <input class="photoLAdd mainButton Wm" style="background-color: transparent;  border: 2px solid white;
+      padding: 0.675rem 1.2rem;" type="file" (change)="UploadSaleMainPhoto($event)" name="psw" id="psw">
+
+          <!-- <input class="photoLAdd" type="file" (change)="uploadPhoto($event.target.files)" name="psw" id="psw" required>  -->
+          <span class="mainButton margA" (click)="EditDFS()">Edit dog for sale</span>
+        </div>
+      </div>
+    </section>
+    <section *ngIf="part == 'addsaledog'" class="content">
+      <div class="page-announce valign-wrapper"><a data-activates="slide-out"
+          class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
+        <h1 class="page-announce-text valign">// Dog for sale / Add</h1>
+      </div>
+      <div class="container">
+        <tr>
+          <td><label>Breed:</label><input type="text" name="usrname" [(ngModel)]="EditAddSaleDog.breed"
+              value="{{EditAddSaleDog.breed}}" /></td>
+          <td class="f10"><label>Age:</label><input type="text" name="usrname" [(ngModel)]="EditAddSaleDog.age"
+              value="{{EditAddSaleDog.age}}" /></td>
+          <td class="f10"><label>Price:</label><input type="number" name="usrname" [(ngModel)]="EditAddSaleDog.price"
+              value="{{EditAddSaleDog.price}}" /></td>
+        </tr>
+        <div class="left">
+          <label>Breed type:</label>
+          <tr>
+            <div class="select" tabindex="1" id="type">
+              <input (click)="ChangeSaleType($event)" value="Watchdog" class="selectopt" name="test" type="radio"
+                id="opt1" checked>
+              <label for="opt1" class="option">Watchdog</label>
+              <input (click)="ChangeSaleType($event)" value="Hunter" class="selectopt" name="test" type="radio"
+                id="opt2">
+              <label for="opt2" class="option">Hunter</label>
+              <input (click)="ChangeSaleType($event)" value="Smart" class="selectopt" name="test" type="radio"
+                id="opt3">
+              <label for="opt3" class="option">Smart</label>
+              <input (click)="ChangeSaleType($event)" value="Kind" class="selectopt" name="test" type="radio" id="opt4">
+              <label for="opt4" class="option">Kind</label>
+              <input (click)="ChangeSaleType($event)" value="Expensive" class="selectopt" name="test" type="radio"
+                id="opt5">
               <label for="opt5" class="option">Expensive</label>
             </div>
         </tr>
       </div>
-
-      <tr>
-        <td class="f9"><label style="margin:0;">Aggressiveness:</label><input type="number" max="5" min="1"
-            name="usrname" [(ngModel)]="mainBreed.aggressiveness" value="{{mainBreed.aggressiveness}}" /></td>
-        <td class="f9"><label style="margin:0;">Activity:</label><input type="number" max="5" min="1" name="usrname"
-            [(ngModel)]="mainBreed.activity" value="{{mainBreed.activity}}" /></td>
-        <td class="f9"><label style="margin:0;">Health:</label><input type="number" max="5" min="1" name="usrname"
-            [(ngModel)]="mainBreed.health" value="{{mainBreed.health}}" /></td>
-      </tr>
-      <tr>
-        <td class="f9"><label style="margin:0;">Intelligence:</label><input type="number" max="5" min="1" name="usrname"
-            [(ngModel)]="mainBreed.intelligence" value="{{mainBreed.intelligence}}" /></td>
-        <td class="f9"><label style="margin:0;">Training:</label><input type="number" max="5" min="1" name="usrname"
-            [(ngModel)]="mainBreed.training" value="{{mainBreed.training}}" /></td>
-        <td class="f9"><label style="margin:0;">Maintenance cost:</label><input type="number" max="5" min="1"
-            name="usrname" [(ngModel)]="mainBreed.maintenanceCost" value="{{mainBreed.maintenanceCost}}" /></td>
-      </tr>
-      <tr>
-        <td class="f9"><label style="margin:0;">Molting:</label><input type="number" max="5" min="1" name="usrname"
-            [(ngModel)]="mainBreed.molting" value="{{mainBreed.molting}}" /></td>
-        <td class="f9"><label style="margin:0;">Security qualities:</label><input type="number" max="5" min="1"
-            name="usrname" [(ngModel)]="mainBreed.securityQualities" value="{{mainBreed.securityQualities}}" /></td>
-        <td class="f9"><label style="margin:0;">Noise:</label><input type="number" max="5" min="1" name="usrname"
-            [(ngModel)]="mainBreed.noise" value="{{mainBreed.noise}}" /></td>
-      </tr>
-
-      <div class="desc">
-        <label>Short description: </label>
-        <input class="inp" type="text" name="usrname" [(ngModel)]="mainBreed.mainDescription"
-          value="{{mainBreed.mainDescription}}" />
-
-        <label style="margin-top: 20px;">Main description: </label>
-        <input class="inp" type="text" name="usrname" [(ngModel)]="mainBreed.bigDescription"
-          value="{{mainBreed.bigDescription}}" />
-
-        <label>Chose main photo: </label>
-        <input class="photoLAdd" type="file" name="psw" id="psw" required>
-
-        <label>Chose big photo: </label>
-        <input class="photoLAdd" type="file" name="psw" id="psw" required>
-
-        <!-- <input class="photoLAdd" type="file" (change)="uploadPhoto($event.target.files)" name="psw" id="psw" required> -->
-
-        <span class="mainButton" (click)="EditBreed()">Edit breed</span>
+      <div class="desc" style="padding-top: 180px;">
+        <label>Info: </label>
+        <input class="inp" type="text" name="usrname" [(ngModel)]="EditAddSaleDog.info"
+          value="{{EditAddSaleDog.info}}" />
+          
+        <span class="mainButton margA" (click)="AddDFS()">Add dog for sale</span>
       </div>
 </div>
-</section>
-<section *ngIf="part == 'add'" class="content">
-  <div class="page-announce valign-wrapper"><a data-activates="slide-out"
-      class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
-    <h1 class="page-announce-text valign">// Breeds / Add </h1>
-  </div>
-  <div class="container my-scroll">
-    <tr>
-      <td><label>Breed:</label><input type="text" name="usrname" [(ngModel)]="mainBreed.breed"
-          value="{{mainBreed.breed}}" /></td>
-      <td class="f10"><label>Country:</label><input type="text" name="usrname" [(ngModel)]="mainBreed.country"
-          value="{{mainBreed.country}}" /></td>
-      <td class="f10"><label>Life expectancy:</label><input type="text" name="usrname"
-          [(ngModel)]="mainBreed.lifeExpectancy" value="{{mainBreed.lifeExpectancy}}" /></td>
-
-    </tr>
-    <tr>
-      <td><label>Height:</label><input type="text" name="usrname" [(ngModel)]="mainBreed.height"
-          value="{{mainBreed.height}}" /></td>
-      <td class="f10"><label>Widht:</label><input type="text" name="usrname" [(ngModel)]="mainBreed.weight"
-          value="{{mainBreed.weight}}" /></td>
-      <td class="f10"><label>Price:</label><input type="text" name="usrname" [(ngModel)]="mainBreed.price"
-          value="{{mainBreed.price}}" /></td>
-    </tr>
-
-    <div class="left">
-      <label>Breed type:</label>
-      <tr>
-        <div class="select" tabindex="1" id="type">
-          <input (click)="ChangeType($event)" value="Watchdog" class="selectopt" name="test" type="radio" id="opt1" checked>
-          <label for="opt1" class="option">Watchdog</label>
-          <input (click)="ChangeType($event)" value="Hunter" class="selectopt" name="test" type="radio" id="opt2">
-          <label for="opt2" class="option">Hunter</label>
-          <input (click)="ChangeType($event)" value="Smart" class="selectopt" name="test" type="radio" id="opt3">
-          <label for="opt3" class="option">Smart</label>
-          <input (click)="ChangeType($event)" value="Kind" class="selectopt" name="test" type="radio" id="opt4">
-          <label for="opt4" class="option">Kind</label>
-          <input (click)="ChangeType($event)" value="Expensive" class="selectopt" name="test" type="radio" id="opt5">
-          <label for="opt5" class="option">Expensive</label>
-        </div>
-    </tr>
-  </div>
-
-  <tr>
-    <td class="f9"><label style="margin:0;">Aggressiveness:</label><input type="number" max="5" min="1" name="usrname"
-        [(ngModel)]="mainBreed.aggressiveness" value="{{mainBreed.aggressiveness}}" /></td>
-    <td class="f9"><label style="margin:0;">Activity:</label><input type="number" max="5" min="1" name="usrname"
-        [(ngModel)]="mainBreed.activity" value="{{mainBreed.activity}}" /></td>
-    <td class="f9"><label style="margin:0;">Health:</label><input type="number" max="5" min="1" name="usrname"
-        [(ngModel)]="mainBreed.health" value="{{mainBreed.health}}" /></td>
-  </tr>
-  <tr>
-    <td class="f9"><label style="margin:0;">Intelligence:</label><input type="number" max="5" min="1" name="usrname"
-        [(ngModel)]="mainBreed.intelligence" value="{{mainBreed.intelligence}}" /></td>
-    <td class="f9"><label style="margin:0;">Training:</label><input type="number" max="5" min="1" name="usrname"
-        [(ngModel)]="mainBreed.training" value="{{mainBreed.training}}" /></td>
-    <td class="f9"><label style="margin:0;">Maintenance cost:</label><input type="number" max="5" min="1" name="usrname"
-        [(ngModel)]="mainBreed.maintenanceCost" value="{{mainBreed.maintenanceCost}}" /></td>
-  </tr>
-  <tr>
-    <td class="f9"><label style="margin:0;">Molting:</label><input type="number" max="5" min="1" name="usrname"
-        [(ngModel)]="mainBreed.molting" value="{{mainBreed.molting}}" /></td>
-    <td class="f9"><label style="margin:0;">Security qualities:</label><input type="number" max="5" min="1"
-        name="usrname" [(ngModel)]="mainBreed.securityQualities" value="{{mainBreed.securityQualities}}" /></td>
-    <td class="f9"><label style="margin:0;">Noise:</label><input type="number" max="5" min="1" name="usrname"
-        [(ngModel)]="mainBreed.noise" value="{{mainBreed.noise}}" /></td>
-  </tr>
-
-  <div class="desc">
-    <label>Short description: </label>
-    <input class="inp" type="text" name="usrname" [(ngModel)]="mainBreed.mainDescription"
-      value="{{mainBreed.mainDescription}}" />
-
-    <label style="margin-top: 20px;">Main description: </label>
-    <input class="inp" type="text" name="usrname" [(ngModel)]="mainBreed.bigDescription"
-      value="{{mainBreed.bigDescription}}" />
-
-    <label>Chose main photo: </label>
-    <input class="photoLAdd" type="file" name="psw" id="psw" required>
-
-    <label>Chose big photo: </label>
-    <input class="photoLAdd" type="file" name="psw" id="psw" required>
-
-
-    <!-- <input class="photoLAdd" type="file" (change)="uploadPhoto($event.target.files)" name="psw" id="psw" required> -->
-
-
-    <span class="mainButton" (click)="AddBreed()">Add breed</span>
-  </div>
-  </div>
-</section>
-
-<section *ngIf="part == 'sales'" class="content">
-  <div class="page-announce valign-wrapper"><a data-activates="slide-out"
-      class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
-    <h1 class="page-announce-text valign">// Dogs for sale </h1>
-  </div>
-  <div id="posttable" class="container my-scroll" style="width: 90%;">
-    <table class="responsive-table striped hover centered" id="names-table">
-      <thead>
-        <tr>
-          <th>Breed:</th>
-          <th>Breed type:</th>
-          <th>Age:</th>
-          <th>Info:</th>
-          <th>Price:</th>
-          <th><button class="btn bg-green" (click)="AddSaleDog()">Add dog for sale</button></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let sale of sales;">
-          <td><a>{{sale.breed}}</a></td>
-          <td><a>{{sale.dogType}}</a></td>
-          <td><a>{{sale.age}}</a></td>
-          <td class="infoBig"><a>{{sale.info}}</a></td>
-          <td class="price"><a>{{sale.price}}</a></td>
-          <td class="centr">
-            <div class="btn-toolbar">
-              <a (click)="EditSaleDog(sale.id)">
-                <button class="btn bg-aqua" type="submit">
-                  <i class="material-icons">edit</i>
-                </button>
-              </a>
-              <a (click)="DeleteSaleDog(sale.id)">
-                <button class="btn bg-red" type="submit">
-                  <i class="material-icons">delete</i>
-                </button>
-              </a>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-<section *ngIf="part == 'editsaledog'" class="content">
-  <div class="page-announce valign-wrapper"><a data-activates="slide-out"
-      class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
-    <h1 class="page-announce-text valign">// Dog for sale / Edit</h1>
-  </div>
-  <div class="container">
-    <tr>
-      <td><label>Breed:</label><input type="text" name="usrname" [(ngModel)]="EditAddSaleDog.breed"
-          value="{{EditAddSaleDog.breed}}" /></td>
-      <td class="f10"><label>Age:</label><input type="text" name="usrname" [(ngModel)]="EditAddSaleDog.age"
-          value="{{EditAddSaleDog.age}}" /></td>
-      <td class="f10"><label>Price:</label><input type="number" name="usrname" [(ngModel)]="EditAddSaleDog.price"
-          value="{{EditAddSaleDog.price}}" /></td>
-    </tr>
-    <div class="left">
-      <label>Breed type:</label>
-      <tr>
-        <div class="select" tabindex="1" id="type">
-          <input (click)="ChangeSaleType($event)" value="Watchdog" class="selectopt" name="test" type="radio" id="opt1" checked>
-          <label for="opt1" class="option">Watchdog</label>
-          <input (click)="ChangeSaleType($event)" value="Hunter" class="selectopt" name="test" type="radio" id="opt2">
-          <label for="opt2" class="option">Hunter</label>
-          <input (click)="ChangeSaleType($event)" value="Smart" class="selectopt" name="test" type="radio" id="opt3">
-          <label for="opt3" class="option">Smart</label>
-          <input (click)="ChangeSaleType($event)" value="Kind" class="selectopt" name="test" type="radio" id="opt4">
-          <label for="opt4" class="option">Kind</label>
-          <input (click)="ChangeSaleType($event)" value="Expensive" class="selectopt" name="test" type="radio" id="opt5">
-          <label for="opt5" class="option">Expensive</label>
-        </div>
-    </tr>
-  </div>
-  <div class="desc" style="padding-top: 125px;">
-    <label>Info: </label>
-    <input class="inp" type="text" name="usrname" [(ngModel)]="EditAddSaleDog.info"
-      value="{{EditAddSaleDog.info}}" />
-
-    <label>Chose main photo: </label>
-    <input class="photoLAdd" type="file" name="psw" id="psw" required> 
-    <!-- <input class="photoLAdd" type="file" (change)="uploadPhoto($event.target.files)" name="psw" id="psw" required>  -->
-    <span class="mainButton margA" (click)="EditDFS()">Edit dog for sale</span>
-  </div>
-  </div>
-</section>
-<section *ngIf="part == 'addsaledog'" class="content">
-  <div class="page-announce valign-wrapper"><a data-activates="slide-out"
-      class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
-    <h1 class="page-announce-text valign">// Dog for sale / Add</h1>
-  </div>
-  <div class="container">
-    <tr>
-      <td><label>Breed:</label><input type="text" name="usrname" [(ngModel)]="EditAddSaleDog.breed"
-          value="{{EditAddSaleDog.breed}}" /></td>
-      <td class="f10"><label>Age:</label><input type="text" name="usrname" [(ngModel)]="EditAddSaleDog.age"
-          value="{{EditAddSaleDog.age}}" /></td>
-      <td class="f10"><label>Price:</label><input type="text" name="usrname" [(ngModel)]="EditAddSaleDog.price"
-          value="{{EditAddSaleDog.price}}" /></td>
-    </tr>
-    <div class="left">
-      <label>Breed type:</label>
-      <tr>
-        <div class="select" tabindex="1" id="type">
-      <tr> <input class="selectopt" name="test" type="radio" id="opt1" checked style="padding: 0;">
-        <label for="opt1" class="option">Watchdog</label>
-      </tr>
-      <td class="separator"></td>
-      <tr><input class="selectopt" name="test" type="radio" id="opt2">
-        <label for="opt2" class="option">Hunter</label>
-      </tr>
-      <td class="separator"></td>
-      <tr><input class="selectopt" name="test" type="radio" id="opt3">
-        <label for="opt3" class="option">Smart</label>
-      </tr>
-      <td class="separator"></td>
-      <tr><input class="selectopt" name="test" type="radio" id="opt4">
-        <label for="opt4" class="option">Kind</label>
-      </tr>
-      <td class="separator"></td>
-      <tr><input class="selectopt" name="test" type="radio" id="opt5">
-        <label for="opt5" class="option">Expensive</label>
-      </tr>
-    </div>
-    </tr>
-  </div>
-  <div class="desc" style="padding-top: 180px;">
-    <label>Info: </label>
-    <input class="inp" type="text" name="usrname" [(ngModel)]="mainBreed.mainDescription"
-      value="{{mainBreed.mainDescription}}" />
-
-    <label>Chose main photo: </label>
-    <!-- <input class="photoLAdd" type="file" (change)="uploadPhoto($event.target)" name="psw" id="psw" required> -->
-    <span class="mainButton margA" (click)="AddDFS()">Add dog for sale</span>
-  </div>
-  </div>
 </section>
 
 <section *ngIf="part == 'users'" class="content">

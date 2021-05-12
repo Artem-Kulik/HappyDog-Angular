@@ -33,11 +33,13 @@
   <div class="part">
     <div class="left-part">
       <div class="inner-left-part">
-        <div class="photoPart">
-          <div class='Lphoto'>
+        <div class="photoPart">    
+    <div class='Lphoto' style="background-image: url(https://localhost:44388/{{myInfo.photo}});  ">
           </div>
         </div>
         <div class="infoPart">
+          <input class="photoLAdd mainButton Wm" style="background-color: transparent;  border: 0px solid transparent;"
+           type="file" (change)="UploadMyPhoto($event)" name="psw" id="psw"> 
           <input type="text" placeholder="User name" class="textInfo" [(ngModel)]="myInfo.name" value="{{myInfo.name}}">
           <input type="email" placeholder="Email" class="textInfo" [(ngModel)]="myInfo.email" value="{{myInfo.email}}">
           <input type="text" placeholder="Phone number" class="textInfo" [(ngModel)]="myInfo.phoneNumber" value="{{myInfo.phoneNumber}}">

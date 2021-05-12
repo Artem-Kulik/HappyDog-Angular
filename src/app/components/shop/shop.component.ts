@@ -121,11 +121,16 @@ export class ShopComponent implements OnInit {
   }
 
   FindByName() {
+    this.spinner.show()
+    setTimeout(() => {
+      this.spinner.hide()
+    }, 1200);
     this.shopService.getSaleDogsByBreed(this.Fbreed).subscribe((res: ApiCollectionResponse) => {
       if (res.isSuccessful) {
         var arr = res.data;
         if (arr != null) {
           this.dogs = arr;
+          this.Fbreed = "";
         }
       }
     });
@@ -141,6 +146,9 @@ export class ShopComponent implements OnInit {
         var arr = res.data;
         if (arr != null) {
           this.dogs = arr;
+          this.filter.type = "";
+          this.filter.max = 0;
+          this.filter.min = 0;
         }
       }
     });
@@ -168,7 +176,7 @@ export class ShopComponent implements OnInit {
           }
         });
       }
-      else{
+      else {
         this.notifier.notify('error', "You haven`t enough money");
       }
     }

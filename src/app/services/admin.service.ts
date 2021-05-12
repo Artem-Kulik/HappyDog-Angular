@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiCollectionResponse, ApiResponse, ApiSingleResponse } from '../models/apiResponse';
@@ -34,5 +34,26 @@ export class AdminService {
 
   sendRequest(x: Result): Observable<ApiResponse> {
     return this.http.post<ApiResponse>('https://localhost:44388/api/admin/sendRequest', x);
+  }
+
+  headers: HttpHeaders = new HttpHeaders();
+  UploadMainPhoto(id: number, file: FormData):  Observable<ApiResponse> {
+    this.headers.append('Content-Type', 'multipart/form-data');
+    return this.http.post<ApiResponse>('https://localhost:44388/api/image/EditBreedMainPhoto/'+id, file, {headers: this.headers})
+  }
+
+  UploadBigPhoto(id: number, file: FormData):  Observable<ApiResponse> {
+    this.headers.append('Content-Type', 'multipart/form-data');
+    return this.http.post<ApiResponse>('https://localhost:44388/api/image/EditBreedBigPhoto/'+id, file, {headers: this.headers})
+  }
+
+  UploadSalePhoto(id: number, file: FormData):  Observable<ApiResponse> {
+    this.headers.append('Content-Type', 'multipart/form-data');
+    return this.http.post<ApiResponse>('https://localhost:44388/api/image/UploadSalePhoto/'+id, file, {headers: this.headers})
+  }
+
+  UploadSaleMainPhoto(id: number, file: FormData):  Observable<ApiResponse> {
+    this.headers.append('Content-Type', 'multipart/form-data');
+    return this.http.post<ApiResponse>('https://localhost:44388/api/image/UploadSaleMainPhoto/'+id, file, {headers: this.headers})
   }
 }
