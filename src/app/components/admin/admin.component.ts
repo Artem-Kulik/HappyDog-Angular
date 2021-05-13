@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CollapseModule } from 'angular-bootstrap-md';
@@ -13,6 +14,10 @@ import { AdminService } from 'src/app/services/admin.service';
 import { BreedService } from 'src/app/services/breed.service';
 import { ShopService } from 'src/app/services/shop.service';
 import { UserService } from 'src/app/services/user.service';
+
+import { SingleDataSet, Label } from 'ng2-charts';
+import { ChartType } from 'chart.js';
+import { CountDto } from 'src/app/models/countDto';
 
 @Component({
   selector: 'app-admin',
@@ -83,12 +88,50 @@ export class AdminComponent implements OnInit {
     myDescription: ''
   };
 
+  count: CountDto = {
+    w: 0,
+    h: 0,
+    s: 0,
+    k: 0,
+    e: 0
+  };
+  countS: CountDto = {
+    w: 0,
+    h: 0,
+    s: 0,
+    k: 0,
+    e: 0
+  };
+
+  public polarAreaChartData: SingleDataSet = [];
+  public polarAreaChartDataS: SingleDataSet = [];
+  public polarAreaChartLabels: Label[] = ['Watchdog', 'Hunting', 'Smart', 'Kind', 'Expensice'];
+  public polarAreaLegend = true;
+
+  public polarAreaChartType: ChartType = 'polarArea';
+
   ngOnInit() {
     this.getBreeds();
     this.getRequests();
     this.getUsers();
     this.getSaleDogs();
+    this.getBreedCount();
   }
+  getBreedCount(){
+    this.adminService.getBreedCount().subscribe((res: ApiSingleResponse) => {
+      if (res.isSuccessful) {
+        this.count = res.data
+        this.polarAreaChartData = [this.count.w, this.count.h, this.count.s, this.count.k, this.count.e];
+      }
+    });
+    this.adminService.getSaleDogCount().subscribe((res: ApiSingleResponse) => {
+      if (res.isSuccessful) {
+        this.countS = res.data
+        this.polarAreaChartDataS = [this.countS.w, this.countS.h, this.countS.s, this.countS.k, this.countS.e];
+      }
+    });    
+  }
+
 
   imgSrc: string = '';
   UploadBigPhoto(e: any) {
@@ -96,7 +139,7 @@ export class AdminComponent implements OnInit {
       if (e.target.files && e.target.files.item(0)) {
         this.formData.append('file', e.target.files.item(0) as File);
         this.adminService.UploadBigPhoto(this.mainBreed.id, this.formData).subscribe((res: ApiResponse) => {
-          if (res.isSuccessful) {            
+          if (res.isSuccessful) {
             this.formData = new FormData();
           }
         });
@@ -179,6 +222,7 @@ export class AdminComponent implements OnInit {
     this.adminService.deleteBreed(breed).subscribe((res: ApiResponse) => {
       if (res.isSuccessful) {
         this.getBreeds();
+        this.getBreedCount();
       }
     });
   }
@@ -189,6 +233,7 @@ export class AdminComponent implements OnInit {
         this.mainBreed == new BreedDto();
         this.getBreeds();
         this.part = "breeds";
+        this.getBreedCount();
       }
       else {
 
@@ -201,6 +246,7 @@ export class AdminComponent implements OnInit {
         this.mainBreed = new BreedDto();
         this.getBreeds();
         this.part = "breeds";
+        this.getBreedCount();
       }
     });
   }
@@ -210,6 +256,7 @@ export class AdminComponent implements OnInit {
       if (res.isSuccessful) {
         this.EditAddSaleDog = res.data;
         this.part = "editsaledog";
+        this.getBreedCount();
       }
     });
   }
@@ -219,6 +266,7 @@ export class AdminComponent implements OnInit {
         this.EditAddSaleDog = new SaleDto();
         this.getSaleDogs();
         this.part = "sales";
+        this.getBreedCount();
       }
     });
   }
@@ -229,6 +277,7 @@ export class AdminComponent implements OnInit {
         this.EditAddSaleDog = new SaleDto();
         this.part = "sales"
         this.getSaleDogs();
+        this.getBreedCount();
       }
     });
   }
@@ -241,10 +290,10 @@ export class AdminComponent implements OnInit {
     this.shopService.deleteSaleDog(id).subscribe((res: ApiResponse) => {
       if (res.isSuccessful) {
         this.getSaleDogs();
+        this.getBreedCount();
       }
     });
   }
-
   res: Result = {
     res: false,
     id: ""
@@ -253,12 +302,14 @@ export class AdminComponent implements OnInit {
     this.res.res = true;
     this.res.id = id.toString();
     this.adminService.sendRequest(this.res).subscribe((res: ApiResponse) => {
-      if (res.isSuccessful) {        
+      if (res.isSuccessful) {
         setTimeout(() => {
           this.spinner.hide()
         }, 600);
         this.notifier.notify('success', 'A new dog was put up for sale');
         this.getRequests();
+        this.getBreedCount();
+        this.getSaleDogs();
       }
     });
   }
@@ -284,6 +335,7 @@ export class AdminComponent implements OnInit {
   }
 
   LogOut() {
+    this.userService.LogOut();
     this.router.navigate(['/']);
   }
   Edit(id: number) {
@@ -292,25 +344,109 @@ export class AdminComponent implements OnInit {
   }
   Dashboard() {
     this.part = "dashboard";
-    console.log("dashboard");
   }
   Breeds() {
     this.part = "breeds";
-    console.log("breeds");
   }
-  Sales() {
-    this.part = "sales";
-    console.log("sales");
+  BreedsGr() {
+    this.part = "grafic";
   }
-  Users() {
-    this.part = "users";
-  }
-  Requests() {
-    this.part = "requests";
-    console.log("requests");
-  }
-  Add() {
-    this.part = "add";
-    this.mainBreed = new BreedDto();
-  }
+  SalesGr() {
+  this.part = "graficsale";
+}
+Sales() {
+  this.part = "sales";
+}
+Users() {
+  this.part = "users";
+}
+Requests() {
+  this.part = "requests";
+}
+Add() {
+  this.part = "add";
+  this.mainBreed = new BreedDto();
+}
+
+
+SortBreed() {
+  this.breedService.getBreedsSBBreed().subscribe((res: ApiCollectionResponse) => {
+    if (res.isSuccessful) {
+      this.breeds = res.data;
+    }
+  });
+}
+SortBreedType() {
+  this.breedService.getBreedsSBType().subscribe((res: ApiCollectionResponse) => {
+    if (res.isSuccessful) {
+      this.breeds = res.data;
+    }
+  });
+}
+SortCountry() {
+  this.breedService.getBreedsSBCountry().subscribe((res: ApiCollectionResponse) => {
+    if (res.isSuccessful) {
+      this.breeds = res.data;
+    }
+  });
+}
+SortHeight() {
+  this.breedService.getBreedsSBHeight().subscribe((res: ApiCollectionResponse) => {
+    if (res.isSuccessful) {
+      this.breeds = res.data;
+    }
+  });
+}
+SortWeight() {
+  this.breedService.getBreedsSBWeight().subscribe((res: ApiCollectionResponse) => {
+    if (res.isSuccessful) {
+      this.breeds = res.data;
+    }
+  });
+}
+
+
+SaleSortBreed() {
+  this.shopService.getSaleDogsSBBreed().subscribe((res: ApiCollectionResponse) => {
+    if (res.isSuccessful) {
+      this.sales = res.data;
+    }
+  });
+}
+SaleSortType() {
+  this.shopService.getSaleDogsSBType().subscribe((res: ApiCollectionResponse) => {
+    if (res.isSuccessful) {
+      this.sales = res.data;
+    }
+  });
+}
+SaleSortAge() {
+  this.shopService.getSaleDogsSBAge().subscribe((res: ApiCollectionResponse) => {
+    if (res.isSuccessful) {
+      this.sales = res.data;
+    }
+  });
+}
+SaleSortPrice() {
+  this.shopService.getSaleDogsSBPrice().subscribe((res: ApiCollectionResponse) => {
+    if (res.isSuccessful) {
+      this.sales = res.data;
+    }
+  });
+}
+SaleSortInfo() {
+  this.shopService.getSaleDogsSBInfo().subscribe((res: ApiCollectionResponse) => {
+    if (res.isSuccessful) {
+      this.sales = res.data;
+    }
+  });
+}
+  // events
+  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  console.log(event, active);
+}
+
+  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  console.log(event, active);
+}
 }

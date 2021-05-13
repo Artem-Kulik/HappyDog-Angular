@@ -35,28 +35,35 @@ export class LoginComponent implements OnInit {
   Login(){
     this.userService.Login(this.prop).subscribe((res : ApiTokenResponse) => {
       if (res.isSuccessful) {
-        if(res.message != "Admin")
-        {
+        const jwtData = res.token.split('.')[1];
+        const decodedJwtJsonData = window.atob(jwtData);
+        const decodedJwtData = JSON.parse(decodedJwtJsonData);
+        if(decodedJwtData.roles == "User"){          
           this.spinner.show()          
           setTimeout(() => {
             this.spinner.hide()
           }, 600);
-          this.notifier.notify('success', 'Wellcome ' + this.prop.email);
-
-        localStorage.setItem("Token", res.token);   
-        localStorage.setItem("Id", res.message);   
-        this.userService.loginStatus.emit(true);
-        this.router.navigate(['/']);     
+          this.notifier.notify('success', 'Welcome ' + this.prop.email);
+          localStorage.setItem("Token", res.token);   
+          localStorage.setItem("Id", res.message);   
+          this.userService.loginStatus.emit(true);
+          this.router.navigate(['/']);     
         }
-        else{
-          this.notifier.notify('success', 'Wellcome admin');
+        else if(decodedJwtData.roles == "Admin"){
+          this.spinner.show()          
+          setTimeout(() => {
+            this.spinner.hide()
+          }, 600);
+          this.notifier.notify('success', 'Welcome ' + this.prop.email);
+          localStorage.setItem("Token", res.token);   
+          localStorage.setItem("Id", res.message);   
 
-          this.router.navigate(['/admin']);     
-        }       
+          this.userService.loginStatus.emit(true);
+          this.router.navigate(['/admin']);  
+        }    
       }
       else{
         this.notifier.notify('error', 'Email or password is wrong');
-
       }
     });   
   }

@@ -13,6 +13,27 @@ import { SaleDto } from '../models/SaleDto';
 export class UserService {
   headers: HttpHeaders = new HttpHeaders();
   loginStatus = new EventEmitter<boolean>();
+
+  isUser(){
+    const token = localStorage.getItem('Token');
+    if(token!=null){
+      const jwtData = token.split('.')[1];
+      const decodedJwtJsonData = window.atob(jwtData);
+      const decodedJwtData = JSON.parse(decodedJwtJsonData);
+      if(decodedJwtData.roles!=null){
+        if(decodedJwtData.roles == "User"){
+          return true;
+        }
+        else return false;
+      }
+    else{
+      return false;
+    }
+    }
+    else{
+      return false;
+    }
+  }
   
   constructor(private http: HttpClient) { }
   Register(x: RegisterDto): Observable<ApiResponse> {

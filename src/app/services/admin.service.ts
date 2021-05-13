@@ -12,6 +12,27 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }  
 
+    isAdmin(){
+      const token = localStorage.getItem('Token');
+      if(token!=null){
+        const jwtData = token.split('.')[1];
+        const decodedJwtJsonData = window.atob(jwtData);
+        const decodedJwtData = JSON.parse(decodedJwtJsonData);
+        if(decodedJwtData.roles!=null){
+          if(decodedJwtData.roles == "Admin"){
+            return true;
+          }
+          else return false;
+        }
+      else{
+        return false;
+      }
+      }
+      else{
+        return false;
+      }
+    }
+
   editBreed(x: BreedDto): Observable<ApiResponse> {
     return this.http.post<ApiResponse>('https://localhost:44388/api/admin/editBreed', x);
   } 
@@ -56,4 +77,11 @@ export class AdminService {
     this.headers.append('Content-Type', 'multipart/form-data');
     return this.http.post<ApiResponse>('https://localhost:44388/api/image/UploadSaleMainPhoto/'+id, file, {headers: this.headers})
   }
+
+  getBreedCount():  Observable<ApiSingleResponse> {
+    return this.http.get<ApiSingleResponse>('https://localhost:44388/api/admin/getBreedCount')
+  }
+  getSaleDogCount():  Observable<ApiSingleResponse> {
+    return this.http.get<ApiSingleResponse>('https://localhost:44388/api/admin/getSaleDogCount')
+  }  
 }

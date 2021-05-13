@@ -49,8 +49,24 @@ export class ShopService {
     return this.http.get<ApiResponse>('https://localhost:44388/api/admin/deleteSaleDog/'+id);
   }
 
-
   addSaleDog(x: SaleDto): Observable<ApiResponse> {
     return this.http.post<ApiResponse>('https://localhost:44388/api/shop/addSaleDog', x);
   }   
+
+  getSaleDogsSBBreed(): Observable<ApiCollectionResponse> {
+    return this.http.get<ApiCollectionResponse>('https://localhost:44388/api/shop/getSaleDogsSBBreed');
+  }
+  getSaleDogsSBType(): Observable<ApiCollectionResponse> {
+    return this.http.get<ApiCollectionResponse>('https://localhost:44388/api/shop/getSaleDogsSBType');
+  }
+  getSaleDogsSBAge(): Observable<ApiCollectionResponse> {
+    return this.http.get<ApiCollectionResponse>('https://localhost:44388/api/shop/getSaleDogsSBAge');
+  }
+  getSaleDogsSBInfo(): Observable<ApiCollectionResponse> {
+    return this.http.get<ApiCollectionResponse>('https://localhost:44388/api/shop/getSaleDogsSBInfo');
+  }
+  getSaleDogsSBPrice(): Observable<ApiCollectionResponse> {
+    return this.http.get<ApiCollectionResponse>('https://localhost:44388/api/shop/getSaleDogsSBPrice');
+  }
 }
+

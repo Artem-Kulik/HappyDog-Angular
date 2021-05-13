@@ -133,3 +133,9 @@ max-width: 400px;
     align-items: center;
     justify-content: center;
 }
+
+.sort:hover{
+transition: 0.5s;
+color: rgb(168, 168, 168);
+text-decoration: underline;
+}

@@ -21,6 +21,7 @@ import { ShopComponent } from './components/shop/shop.component';
 import { MyDogsComponent } from './components/my-dogs/my-dogs.component';
 import { CommonModule } from '@angular/common';
 import { AdminComponent } from './components/admin/admin.component';
+import { ChartsModule } from 'ng2-charts';
 
 const customNotifierOption: NotifierOptions = {
   position:  {horizontal: {position: 'right'}, 
@@ -51,6 +52,7 @@ const customNotifierOption: NotifierOptions = {
     NgxSpinnerModule,
     BrowserAnimationsModule,
     CommonModule,
+    ChartsModule,
     NotifierModule.withConfig(customNotifierOption)
   ],
   providers: [

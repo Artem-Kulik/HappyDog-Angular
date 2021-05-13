@@ -289,7 +289,7 @@
 input[type=text], input[type=password], input[type=number], input[type=file] {
     width: 100%;
     padding: 15px;
-    margin: 5px 0 18px 0;
+    margin: 5px 0 8px 0;
     display: inline-block;
     border: none;
     background: #f1f1f1;
@@ -305,6 +305,7 @@ input[type=text], input[type=password], input[type=number], input[type=file] {
     position:absolute;
   }
   .select { 
+    
     display:flex;
     flex-direction: column;
     position:relative;

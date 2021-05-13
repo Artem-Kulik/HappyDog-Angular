@@ -29,7 +29,7 @@
     </li>
 
     <li><a class="subheader">Management</a></li>
-    <li (click)="Breeds()"><a><i class="material-icons pink-item">pets</i>Breeds</a></li>
+    <li class="" (click)="Breeds()"><a><i class="material-icons pink-item">pets</i>Breeds</a></li>
     <li (click)="Sales()"><a><i class="material-icons pink-item">monetization_on</i>Dogs for sale</a></li>
     <li (click)="Users()"><a><i class="material-icons pink-item">contact_mail</i>Registered users</a></li>
     <li (click)="Requests()"><a><i class="material-icons pink-item">add_shopping_cart</i>Requests for sale</a></li>
@@ -109,11 +109,10 @@
             <h3>Quick Links</h3>
             <div class="row">
               <div class="col l3 s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Mod Handbook"><a
-                  class="waves-effect waves-light btn-large" (click)="Breeds()"><span class="href">All breeds</span></a>
+                  class="waves-effect waves-light btn-large" (click)="BreedsGr()"><span class="href">Schedule of breeds</span></a>
               </div>
               <div class="col l3 s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Staff Applications">
-                <a class="waves-effect waves-light btn-large" (click)="Sales()"><span class="href">List of dogs for
-                    sale</span></a>
+                <a class="waves-effect waves-light btn-large" (click)="SalesGr()"><span class="href">Schedule of dogs for sale</span></a>
               </div>
               <div class="col l3 s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Name Guidelines"><a
                   class="waves-effect waves-light btn-large" (click)="Users()"><span class="href">Registered
@@ -139,7 +138,7 @@
                 <tr>
                   <td>admin@.gmail.com</td>
                   <td>Administrator</td>
-                  <td>2021-08-07</td>
+                  <td>2021-05-13</td>
                   <td><i class="text-green material-icons">check</i></td>
                 </tr>
               </tbody>
@@ -158,11 +157,11 @@
         <table class="responsive-table striped hover centered" id="names-table">
           <thead>
             <tr>
-              <th>Breed:</th>
-              <th>Country:</th>
-              <th>Breed type:</th>
-              <th>Height:</th>
-              <th>Weight:</th>
+              <th class="sort" (click)="SortBreed()">Breed:</th>
+              <th class="sort" (click)="SortCountry()">Country:</th>
+              <th class="sort" (click)="SortBreedType()">Breed type:</th>
+              <th class="sort" (click)="SortHeight()">Height:</th>
+              <th class="sort" (click)="SortWeight()">Weight:</th>
               <th><button class="btn bg-green" (click)="Add()">Add breed</button></th>
             </tr>
           </thead>
@@ -192,6 +191,42 @@
         </table>
       </div>
     </section>
+    <section *ngIf="part=='grafic'" class="content">
+      <div class="page-announce valign-wrapper"><a data-activates="slide-out"
+          class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
+        <h1 class="page-announce-text valign">// Breeds schedule</h1>
+      </div>
+      <div>
+        <div>
+          <div style="display: block" style="width: 1300px; height: 650px;">
+            <canvas baseChart
+              [data]="polarAreaChartData"
+              [labels]="polarAreaChartLabels"
+              [legend]="polarAreaLegend"
+              [chartType]="polarAreaChartType">
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </section>        
+    <section *ngIf="part=='graficsale'" class="content">
+      <div class="page-announce valign-wrapper"><a data-activates="slide-out"
+          class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
+        <h1 class="page-announce-text valign">// Schedule of dogs for sale</h1>
+      </div>
+      <div>
+        <div>
+          <div style="display: block" style="width: 1300px; height: 650px;">
+            <canvas baseChart
+              [data]="polarAreaChartDataS"
+              [labels]="polarAreaChartLabels"
+              [legend]="polarAreaLegend"
+              [chartType]="polarAreaChartType">
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </section>  
     <section *ngIf="part == 'edit'" class="content">
       <div class="page-announce valign-wrapper"><a data-activates="slide-out"
           class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
@@ -223,8 +258,8 @@
               <input (click)="ChangeType($event)" value="Watchdog" class="selectopt" name="test" type="radio" id="opt1"
                 checked>
               <label for="opt1" class="option">Watchdog</label>
-              <input (click)="ChangeType($event)" value="Hunter" class="selectopt" name="test" type="radio" id="opt2">
-              <label for="opt2" class="option">Hunter</label>
+              <input (click)="ChangeType($event)" value="Hunting" class="selectopt" name="test" type="radio" id="opt2">
+              <label for="opt2" class="option">Hunting</label>
               <input (click)="ChangeType($event)" value="Smart" class="selectopt" name="test" type="radio" id="opt3">
               <label for="opt3" class="option">Smart</label>
               <input (click)="ChangeType($event)" value="Kind" class="selectopt" name="test" type="radio" id="opt4">
@@ -316,8 +351,8 @@
               <input (click)="ChangeType($event)" value="Watchdog" class="selectopt" name="test" type="radio" id="opt1"
                 checked>
               <label for="opt1" class="option">Watchdog</label>
-              <input (click)="ChangeType($event)" value="Hunter" class="selectopt" name="test" type="radio" id="opt2">
-              <label for="opt2" class="option">Hunter</label>
+              <input (click)="ChangeType($event)" value="Hunting" class="selectopt" name="test" type="radio" id="opt2">
+              <label for="opt2" class="option">Hunting</label>
               <input (click)="ChangeType($event)" value="Smart" class="selectopt" name="test" type="radio" id="opt3">
               <label for="opt3" class="option">Smart</label>
               <input (click)="ChangeType($event)" value="Kind" class="selectopt" name="test" type="radio" id="opt4">
@@ -377,11 +412,11 @@
         <table class="responsive-table striped hover centered" id="names-table">
           <thead>
             <tr>
-              <th>Breed:</th>
-              <th>Breed type:</th>
-              <th>Age:</th>
-              <th>Info:</th>
-              <th>Price:</th>
+              <th class="sort" (click)="SaleSortBreed()">Breed:</th>
+              <th class="sort" (click)="SaleSortType()">Breed type:</th>
+              <th class="sort" (click)="SaleSortAge()">Age:</th>
+              <th class="sort" (click)="SaleSortInfo()">Info:</th>
+              <th class="sort" (click)="SaleSortPrice()">Price:</th>
               <th><button class="btn bg-green" (click)="AddSaleDog()">Add dog for sale</button></th>
             </tr>
           </thead>
@@ -432,9 +467,9 @@
               <input (click)="ChangeSaleType($event)" value="Watchdog" class="selectopt" name="test" type="radio"
                 id="opt1" checked>
               <label for="opt1" class="option">Watchdog</label>
-              <input (click)="ChangeSaleType($event)" value="Hunter" class="selectopt" name="test" type="radio"
+              <input (click)="ChangeSaleType($event)" value="Hunting" class="selectopt" name="test" type="radio"
                 id="opt2">
-              <label for="opt2" class="option">Hunter</label>
+              <label for="opt2" class="option">Hunting</label>
               <input (click)="ChangeSaleType($event)" value="Smart" class="selectopt" name="test" type="radio"
                 id="opt3">
               <label for="opt3" class="option">Smart</label>
@@ -481,9 +516,9 @@
               <input (click)="ChangeSaleType($event)" value="Watchdog" class="selectopt" name="test" type="radio"
                 id="opt1" checked>
               <label for="opt1" class="option">Watchdog</label>
-              <input (click)="ChangeSaleType($event)" value="Hunter" class="selectopt" name="test" type="radio"
+              <input (click)="ChangeSaleType($event)" value="Hunting" class="selectopt" name="test" type="radio"
                 id="opt2">
-              <label for="opt2" class="option">Hunter</label>
+              <label for="opt2" class="option">Hunting</label>
               <input (click)="ChangeSaleType($event)" value="Smart" class="selectopt" name="test" type="radio"
                 id="opt3">
               <label for="opt3" class="option">Smart</label>
@@ -577,6 +612,7 @@
     </table>
   </div>
 </section>
+
 </main>
 <footer class="page-footer">
   <div class="footer-copyright">
